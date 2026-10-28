@@ -1,0 +1,3 @@
+﻿scenario,synthetic_days,start_nav,final_close,final_cash,final_shares,final_nav,return,max_drawdown,peak_shares,buys,sells,reanchors,cash_below_close_days,cash_end_can_buy_one_unit
+估值门控持续通过（最大买入压力）,72,500.0,72.0,32.09758421366034,5,392.09758421366035,-0.21580483157267927,-0.40292267506147916,5,4,2,0,56,0
+估值门控始终不通过（现金保留边界）,72,500.0,72.0,200.0,3,416.0,-0.16800000000000004,-0.2786561264822135,3,0,0,0,0,1
