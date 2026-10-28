@@ -1,0 +1,113 @@
+{
+  "checked_on": "2026-10-02",
+  "company": "腾讯控股",
+  "currency": "CNY",
+  "raw_amount_unit": "RMB million",
+  "amount_unit_in_documents": "人民币亿元",
+  "million_to_yi_divisor": 100,
+  "period_basis": "单季；2025Q2是同比基期，2026Q1是环比基期，三列不是连续三个季度",
+  "quarters": {
+    "2025Q2": {
+      "revenue": 184504,
+      "ifrs_attributable_profit": 55628,
+      "non_ifrs_attributable_profit": 63052
+    },
+    "2026Q1": {
+      "revenue": 196458,
+      "ifrs_attributable_profit": 58093,
+      "non_ifrs_attributable_profit": 67905
+    },
+    "2026Q2": {
+      "revenue": 204785,
+      "ifrs_attributable_profit": 56022,
+      "non_ifrs_attributable_profit": 68415
+    }
+  },
+  "q2_2026_attributable_profit_adjustments": {
+    "share_based_compensation": 7756,
+    "net_losses_from_investees": 4527,
+    "acquisition_intangible_amortisation": 2611,
+    "impairment_reversals": -2064,
+    "ssv_cpp_and_donations": 861,
+    "others": 647,
+    "income_tax_effects": -1945
+  },
+  "q2_2025_attributable_profit_adjustments": {
+    "share_based_compensation": 8071,
+    "net_gains_from_investees": -3192,
+    "acquisition_intangible_amortisation": 2848,
+    "impairment_reversals": -405,
+    "ssv_cpp": 751,
+    "others": 0,
+    "income_tax_effects": -649
+  },
+  "q1_2026_attributable_profit_adjustments": {
+    "share_based_compensation": 7193,
+    "net_gains_from_investees": -3342,
+    "acquisition_intangible_amortisation": 2862,
+    "impairment_provisions": 2397,
+    "ssv_cpp_and_donations": 765,
+    "others": 0,
+    "income_tax_effects": -63
+  },
+  "q2_cash_flow_rounded_yi": {
+    "operating_cash_flow": 527,
+    "capex_cash_payments": 593,
+    "media_content_payments": 50,
+    "lease_liability_payments": 22,
+    "free_cash_flow": -138,
+    "company_free_cash_flow_excluding_compute_prepayments": 376
+  },
+  "cash_flow_caution": "现金流为公告十亿元摘要转成亿元的舍入数。算力采购预付款已经包含在经营现金流内，不可再次扣减。剔除预付款值为公司补充解释，不替代实际自由现金流。",
+  "q2_capex_recognised_million": 52784,
+  "sources": [
+    {
+      "file": "腾讯-2026Q2-官方业绩新闻稿.pdf",
+      "url": "https://www.tencent.com/wp-content/uploads/2026/08/Tencent-Announces-2026-Second-Quarter-Results.pdf",
+      "published_on": "2026-08-12",
+      "sha256": "64d8d2038eeef993571b96bb3361b6f1a567d6e84157eb16af20d2fd9a095f0a",
+      "pages": {
+        "quarterly_income_statement": 5,
+        "attributable_reconciliation": 9,
+        "cash_flow_summary": 2
+      }
+    },
+    {
+      "file": "腾讯-2026Q2-港交所业绩公告.pdf",
+      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0812/2026081200296.pdf",
+      "published_on": "2026-08-12",
+      "sha256": "6ae9083e568a17ea49c796c5f6d15741a5ab720b0d98e8e97291292a29385119",
+      "pages": {
+        "quarterly_comparison": 1,
+        "associate_explanation": 8,
+        "non_ifrs_reconciliation": [
+          14,
+          15
+        ],
+        "cash_flow_summary": 17
+      }
+    }
+  ],
+  "calculated_growth_percent": {
+    "revenue": {
+      "yoy": "10.99",
+      "qoq": "4.24"
+    },
+    "ifrs_attributable_profit": {
+      "yoy": "0.71",
+      "qoq": "-3.56"
+    },
+    "non_ifrs_attributable_profit": {
+      "yoy": "8.51",
+      "qoq": "0.75"
+    }
+  },
+  "calculated_reconciliation_million": {
+    "2026Q2_adjustment_total": 12393,
+    "2025Q2_adjustment_total": 7424,
+    "2026Q1_adjustment_total": 9812,
+    "ifrs_profit_yoy_change": 394,
+    "non_ifrs_profit_yoy_change": 5363,
+    "adjustment_total_yoy_change": 4969
+  }
+}

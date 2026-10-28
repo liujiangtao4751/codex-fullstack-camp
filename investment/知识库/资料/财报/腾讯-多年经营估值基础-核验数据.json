@@ -1,0 +1,201 @@
+{
+  "metadata": {
+    "created": "2026-10-04",
+    "purpose": "腾讯2021-2025年度规模与利润趋势、2026H1 TTM及估值敏感性输入与复算",
+    "currency": "RMB unless stated otherwise",
+    "unit": "RMB billion unless stated otherwise",
+    "rounding": "annual figures shown to 0.1 billion; TTM inputs use reported quarter or half-year values in millions converted to billion",
+    "caveat": "Non-IFRS measures are issuer-defined; market price and FX are third-party snapshots. Valuation calculations are illustrative, not a forecast or trading instruction."
+  },
+  "annual_results": [
+    {
+      "year": 2021,
+      "revenue": 560.118,
+      "revenue_yoy_percent": 16,
+      "ifrs_profit_attributable": 224.822,
+      "ifrs_profit_yoy_percent": 41,
+      "non_ifrs_profit_attributable": 123.788,
+      "non_ifrs_profit_yoy_percent": 1,
+      "source": "https://static.www.tencent.com/uploads/2022/03/23/d5231df5649ef4a97990d3ac1c20bb69.pdf"
+    },
+    {
+      "year": 2022,
+      "revenue": 554.552,
+      "revenue_yoy_percent": -1,
+      "ifrs_profit_attributable": 188.243,
+      "ifrs_profit_yoy_percent": -16,
+      "non_ifrs_profit_attributable": 115.649,
+      "non_ifrs_profit_yoy_percent": -7,
+      "source": "https://static.www.tencent.com/uploads/2023/03/22/3b5431187fdc8a053d9fee3a4c031aa6.pdf"
+    },
+    {
+      "year": 2023,
+      "revenue": 609.015,
+      "revenue_yoy_percent": 10,
+      "ifrs_profit_attributable": 115.216,
+      "ifrs_profit_yoy_percent": -39,
+      "non_ifrs_profit_attributable": 157.688,
+      "non_ifrs_profit_yoy_percent": 36,
+      "source": "https://static.www.tencent.com/uploads/2024/03/20/fe50310bf15caaab4b05dd9e8e49d316.pdf"
+    },
+    {
+      "year": 2024,
+      "revenue": 660.257,
+      "revenue_yoy_percent": 8,
+      "ifrs_profit_attributable": 194.1,
+      "ifrs_profit_yoy_percent": 68,
+      "non_ifrs_profit_attributable": 222.7,
+      "non_ifrs_profit_yoy_percent": 41,
+      "source": "https://static.www.tencent.com/uploads/2025/03/19/81cb1f36bec218d27d6e0b24eec012b6.pdf"
+    },
+    {
+      "year": 2025,
+      "revenue": 751.8,
+      "revenue_yoy_percent": 14,
+      "ifrs_profit_attributable": 224.8,
+      "ifrs_profit_yoy_percent": 16,
+      "non_ifrs_profit_attributable": 259.6,
+      "non_ifrs_profit_yoy_percent": 17,
+      "source": "https://static.www.tencent.com/uploads/2026/03/18/c5a080d9b669f63b4e55182acee96bc2.pdf"
+    }
+  ],
+  "interim_inputs": {
+    "2025_h1": {
+      "revenue": 364.526,
+      "ifrs_profit_attributable": 103.449,
+      "non_ifrs_profit_attributable": 124.381,
+      "source_q1": "https://static.www.tencent.com/uploads/2025/05/16/2af4e73edd208df236dadd8b9df89fc4.pdf",
+      "source_q2": "https://static.www.tencent.com/uploads/2025/08/13/56af6c5c98acdc7bd757a7bd208d8189.pdf"
+    },
+    "2026_h1": {
+      "revenue": 401.243,
+      "ifrs_profit_attributable": 114.115,
+      "non_ifrs_profit_attributable": 136.32,
+      "free_cash_flow": 42.9,
+      "net_cash_at_2026_06_30": 58.2,
+      "listed_investee_equity_fair_value": 487.2,
+      "unlisted_investee_equity_carrying_value": 387.9,
+      "source_q1": "https://static.www.tencent.com/uploads/2026/05/13/59cf8219adbb046153f69387479350ac.pdf",
+      "source_q2": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0812/2026081200296.pdf"
+    }
+  },
+  "ttm_calculations": {
+    "as_of": "2026-06-30",
+    "revenue": {
+      "formula": "FY2025 - H1 2025 + H1 2026",
+      "calculation": "751.8 - 364.526 + 401.243",
+      "value": 788.517
+    },
+    "ifrs_profit_attributable": {
+      "formula": "FY2025 - H1 2025 + H1 2026",
+      "calculation": "224.8 - 103.449 + 114.115",
+      "value": 235.466
+    },
+    "non_ifrs_profit_attributable": {
+      "formula": "FY2025 - H1 2025 + H1 2026",
+      "calculation": "259.6 - 124.381 + 136.320",
+      "value": 271.539
+    },
+    "h1_2026_yoy_percent": {
+      "revenue": 10.07,
+      "ifrs_profit_attributable": 10.31,
+      "non_ifrs_profit_attributable": 9.6
+    }
+  },
+  "valuation_snapshot": {
+    "price_date": "2026-10-02",
+    "share_price_hkd": 421.2,
+    "shares_billion_proxy": 9.092234841,
+    "shares_date": "2026-06-30",
+    "hkd_to_cny": 0.8544,
+    "market_cap_hkd_billion_approx": 3829.649,
+    "market_cap_rmb_billion_approx": 3272.052,
+    "ifrs_ttm_pe_approx": 13.9,
+    "non_ifrs_ttm_pe_approx": 12.05,
+    "non_ifrs_ttm_eps_rmb_approx": 29.87,
+    "ifrs_ttm_eps_rmb_approx": 25.89,
+    "sources": {
+      "price": "https://hk.finance.yahoo.com/quote/0700.HK/history/",
+      "shares": "https://www.tencent.com/zh-cn/investors/financial-reports/",
+      "fx": "https://ca.investing.com/currencies/hkd-cny-historical-data"
+    }
+  },
+  "five_year_price_return_sensitivity": {
+    "initial_non_ifrs_pe_approx": 12.05,
+    "horizon_years": 5,
+    "growth_is": "annual growth in per-share non-IFRS earnings",
+    "formula": "(((terminal_pe / initial_pe) * (1 + earnings_growth)^5)^(1/5) - 1) * 100",
+    "annualized_price_return_percent_excluding_dividends_costs_tax_fx": {
+      "terminal_pe_10": {
+        "growth_5_percent": 1.2,
+        "growth_8_percent": 4.0,
+        "growth_12_percent": 7.9
+      },
+      "terminal_pe_12": {
+        "growth_5_percent": 4.9,
+        "growth_8_percent": 7.9,
+        "growth_12_percent": 11.9
+      },
+      "terminal_pe_15": {
+        "growth_5_percent": 9.7,
+        "growth_8_percent": 12.8,
+        "growth_12_percent": 17.0
+      }
+    }
+  },
+  "cash_and_investment_observations": {
+    "fy2025_free_cash_flow": 182.6,
+    "fy2025_net_cash": 107.1,
+    "fy2025_listed_investee_equity_fair_value": 672.7,
+    "fy2025_unlisted_investee_equity_carrying_value": 363.1,
+    "q1_2026_free_cash_flow": 56.7,
+    "q2_2026_free_cash_flow": -13.8,
+    "q2_2026_reported_total_cash": 511.2,
+    "q2_2026_net_cash": 58.2,
+    "q2_2026_listed_investee_equity_fair_value": 487.2,
+    "q2_2026_unlisted_investee_equity_carrying_value": 387.9,
+    "q2_2026_source": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0812/2026081200296.pdf"
+  },
+  "current_valuation_snapshot": {
+    "price_date": "2026-10-21",
+    "share_price_hkd": 393.8,
+    "shares_billion_proxy": 9.092234841,
+    "shares_date": "2026-06-30",
+    "hkd_to_cny": 0.8507,
+    "market_cap_hkd_billion_approx": 3580.522,
+    "market_cap_rmb_billion_approx": 3045.95,
+    "ifrs_ttm_pe_approx": 12.94,
+    "non_ifrs_ttm_pe_approx": 11.22,
+    "ifrs_ttm_eps_rmb_approx": 25.9,
+    "non_ifrs_ttm_eps_rmb_approx": 29.86,
+    "method_note": "Uses 2026H1 TTM attributable profits and June-end issued shares; price and FX are Oct 21 third-party observations, so market cap and P/E are approximate.",
+    "sources": {
+      "price": "https://hk.investing.com/equities/tencent-holdings-hk-historical-data",
+      "fx": "https://hk.investing.com/currencies/hkd-cny-historical-data",
+      "shares": "https://www.tencent.com/zh-cn/investors/financial-reports/"
+    }
+  },
+  "five_year_price_return_sensitivity_20261021": {
+    "initial_non_ifrs_pe_approx": 11.22,
+    "horizon_years": 5,
+    "growth_is": "annual growth in per-share non-IFRS earnings",
+    "formula": "(((terminal_pe / initial_pe) * (1 + earnings_growth)^5)^(1/5) - 1) * 100",
+    "annualized_price_return_percent_excluding_dividends_costs_tax_fx": {
+      "terminal_pe_10": {
+        "growth_5_percent": 2.6,
+        "growth_8_percent": 5.5,
+        "growth_12_percent": 9.5
+      },
+      "terminal_pe_12": {
+        "growth_5_percent": 6.4,
+        "growth_8_percent": 9.5,
+        "growth_12_percent": 13.5
+      },
+      "terminal_pe_15": {
+        "growth_5_percent": 11.3,
+        "growth_8_percent": 14.5,
+        "growth_12_percent": 18.7
+      }
+    }
+  }
+}
