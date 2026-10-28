@@ -1,35 +1,520 @@
 <!doctype html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="面向产品与数据背景学习者的 7 天 Codex 全栈开发训练营"
-    />
-    <title>Codex 全栈训练营</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%23111318%22/><text x=%2216%22 y=%2221%22 text-anchor=%22middle%22 font-size=%2216%22 fill=%22white%22>C</text></svg>" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <div id="app">
-      <div class="file-protocol-help" hidden>
-        <strong>课程网站需要通过本地服务器运行</strong>
-        <p>请双击项目目录中的“启动课程.command”，不要直接双击 index.html。</p>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f4">
+  <title>家庭投资助手</title>
+  <style>
+    :root{--ink:#182720;--muted:#6b776f;--line:#e2e8e2;--paper:#fff;--bg:#f5f7f4;--green:#276b4a;--greenbg:#e8f3ec;--amber:#8a5a18;--amberbg:#fbf1df;--blue:#426b83;--bluebg:#eaf1f5;--red:#9b3e36;--redbg:#fbecea;--shadow:0 12px 34px rgba(26,49,34,.05)}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}button,input{font:inherit}button{cursor:pointer}.shell{width:min(1120px,calc(100% - 36px));margin:auto;padding:28px 0 42px}.top{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:20px}.brand{display:flex;align-items:center;gap:11px;font-weight:750;letter-spacing:-.02em}.logo{height:35px;width:35px;border-radius:11px;background:var(--green);color:#fff;display:grid;place-items:center;font-size:18px}.top-right{display:flex;gap:10px;align-items:center}.demo{font-size:11px;font-weight:750;color:#704b11;background:#fff3d9;border:1px solid #efd59f;border-radius:99px;padding:6px 10px}.asof{font-size:12px;color:var(--muted)}.hero{display:grid;grid-template-columns:1.4fr .6fr;gap:14px}.panel,.card{background:var(--paper);border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow)}.hero-main{padding:24px 26px}.eyebrow{color:var(--green);font-size:11px;font-weight:800;letter-spacing:.08em}.hero h1{font-size:clamp(25px,4vw,35px);line-height:1.18;letter-spacing:-.04em;margin:8px 0}.lede{color:#526158;max-width:670px;margin:0;font-size:14px}.hero-side{padding:20px 22px;display:flex;flex-direction:column;justify-content:center}.side-label{font-size:12px;color:var(--muted)}.side-value{font-size:29px;font-weight:800;letter-spacing:-.04em;margin:2px 0}.side-note{font-size:12px;color:var(--muted)}.nav{display:flex;gap:7px;margin:21px 0 14px;border-bottom:1px solid var(--line)}.nav button{border:0;background:transparent;color:var(--muted);padding:11px 14px;font-weight:650;border-bottom:2px solid transparent}.nav button.active{color:var(--green);border-color:var(--green)}.section-title{display:flex;justify-content:space-between;align-items:end;gap:14px;margin:22px 1px 11px}.section-title h2{font-size:18px;letter-spacing:-.025em;margin:0}.subtle{font-size:12px;color:var(--muted)}.cash-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.cash-card{padding:14px 16px}.cash-currency{font-size:12px;color:var(--muted);font-weight:700}.cash-balance{font-size:21px;font-weight:760;margin:3px 0}.cash-details{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:11px}.alert-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.alert{padding:17px 18px;border-left:4px solid var(--amber)}.alert.clear{border-left-color:var(--red)}.alert.neutral{border-left-color:var(--blue)}.alert-top{display:flex;justify-content:space-between;gap:10px;align-items:start}.badge{display:inline-flex;padding:4px 9px;border-radius:99px;background:var(--amberbg);color:var(--amber);font-size:11px;font-weight:750}.badge.clear{background:var(--redbg);color:var(--red)}.badge.neutral{background:var(--bluebg);color:var(--blue)}.alert h3{font-size:16px;margin:8px 0 5px}.alert p{font-size:13px;color:#536159;margin:0}.alert .next-step{margin-top:10px;color:var(--ink);font-size:12px}.asset-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.asset{padding:17px}.asset-head{display:flex;justify-content:space-between;gap:10px;align-items:start}.asset-name{font-weight:780;font-size:16px}.ticker{color:var(--muted);font-size:11px;margin-top:1px}.asset-meta{font-size:12px;color:var(--muted);margin:12px 0 7px}.asset-reason{font-size:12px;color:#526158;min-height:54px}.asset-bottom{border-top:1px solid #edf1ed;margin-top:12px;padding-top:10px;display:flex;justify-content:space-between;gap:8px;font-size:11px;color:var(--muted)}.lots{display:grid;gap:10px}.lot,.order-card{padding:16px 18px}.lot-head{display:flex;justify-content:space-between;align-items:center;gap:8px}.tag{background:#eef2ef;color:#526158;padding:3px 8px;border-radius:99px;font-size:11px;font-weight:700}.tag.strategic{background:var(--bluebg);color:var(--blue)}.tag.swing{background:var(--greenbg);color:var(--green)}.lot-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:11px}.mini-label{font-size:10px;color:var(--muted)}.mini-value{font-size:13px;font-weight:680;margin-top:2px}.inline-note{padding:12px 14px;border-radius:12px;background:#f1f5f2;color:#4c5c51;font-size:12px;margin:12px 0}.warning{background:var(--amberbg);color:#6f511c}.danger{background:var(--redbg);color:#7e342e}.order-list{display:grid;gap:10px}.order-head{display:flex;justify-content:space-between;align-items:start;gap:12px}.order-title{font-weight:750}.order-side{display:inline-flex;align-items:center;gap:7px}.side-dot{height:8px;width:8px;border-radius:50%;background:var(--green)}.side-dot.sell{background:#cb7659}.order-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:13px}.field-label{font-size:10px;color:var(--muted);margin-bottom:4px}.field input{width:100%;border:1px solid #d7dfd8;border-radius:9px;padding:8px 9px;background:#fff;color:var(--ink)}.field input:focus{outline:2px solid #bdd4c4;border-color:var(--green)}.formula{font-size:12px;color:#46564b}.formula strong{color:var(--ink)}.actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}.btn{border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);padding:7px 11px;font-size:12px;font-weight:700}.btn.primary{background:var(--green);color:#fff;border-color:var(--green)}.btn:hover{filter:brightness(.97)}.diff{font-size:11px;color:var(--muted)}.good{color:var(--green);font-weight:700}.bad{color:var(--amber);font-weight:700}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;font-size:12px}.table th,.table td{text-align:left;padding:10px 9px;border-bottom:1px solid var(--line);white-space:nowrap}.table th{color:var(--muted);font-weight:650;background:#fafbfa}.empty{padding:24px;text-align:center;color:var(--muted);font-size:13px}.footer{margin-top:20px;padding:13px 15px;color:var(--muted);font-size:11px;background:#edf2ed;border-radius:12px}.hidden{display:none!important}.mobile-only{display:none}
+    @media(max-width:820px){.hero{grid-template-columns:1fr}.asset-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.order-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.lot-meta{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.shell{width:min(100% - 22px,480px);padding:16px 0 28px}.top{align-items:flex-start}.top-right{align-items:flex-end;flex-direction:column;gap:5px}.asof{font-size:10px}.hero-main{padding:20px}.hero-side{padding:16px 19px}.cash-grid{grid-template-columns:1fr}.cash-card{display:grid;grid-template-columns:1fr auto;align-items:center}.cash-currency{grid-column:1}.cash-balance{grid-column:2;grid-row:1/3}.cash-details{grid-column:1}.alert-grid,.asset-grid{grid-template-columns:1fr}.asset-reason{min-height:0}.nav{overflow:auto}.nav button{white-space:nowrap;padding:10px 11px}.section-title{align-items:start;flex-direction:column;gap:3px}.order-grid{grid-template-columns:1fr 1fr}.order-card{padding:14px}.mobile-only{display:block}.hide-mobile{display:none}}
+    .scenario-label{display:inline-flex;align-items:center;border:1px solid #e8c77e;border-radius:99px;background:#fff3d9;color:#704b11;padding:3px 8px;font-size:10px;font-weight:800;white-space:nowrap}
+  </style>
+  <style>
+    .workspace-tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:15px 0 10px}.workspace-tools .btn{font-size:12px}.workspace-tools .tool-note{font-size:11px;color:var(--muted);margin-left:auto}.section-actions{display:flex;gap:7px;flex-wrap:wrap}.asset-editor{padding:15px;margin:12px 0}.edit-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:12px}.edit-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}.edit-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}.edit-grid .field{min-width:0}.field input,.field select{width:100%;border:1px solid #d7dfd8;border-radius:9px;padding:8px 9px;background:#fff;color:var(--ink)}.field select{min-height:39px}.edit-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px}.edit-row strong{font-size:13px}.mini-btn{border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);padding:5px 8px;font-size:11px;font-weight:700}.mini-btn:disabled{cursor:not-allowed;opacity:.55}.mini-btn.danger-btn{color:var(--red);border-color:#eed1ce}.add-form{padding:15px;margin:12px 0;background:#f9fbf9}.add-form h3{font-size:14px;margin:0}.empty{background:#fff;border:1px dashed var(--line);border-radius:14px}.input-help{font-size:11px;color:var(--muted);margin:8px 0 0}.balance-input{max-width:180px}.toolbar-hidden{display:none!important}.restore-dialog{width:min(560px,calc(100% - 28px));max-height:85vh;overflow:auto;border:1px solid var(--line);border-radius:17px;padding:22px;background:#fff;color:var(--ink);box-shadow:0 18px 60px rgba(20,35,25,.22)}.restore-dialog::backdrop{background:rgba(20,35,25,.42)}.restore-dialog h2{font-size:20px;margin:0 0 5px}.restore-dialog p{font-size:13px;color:#526158;margin:7px 0}.restore-dialog .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0}.restore-dialog .compare-card{border:1px solid var(--line);border-radius:12px;padding:12px;background:#f9fbf9}.restore-dialog .compare-card h3{font-size:13px;margin:0 0 8px}.restore-dialog .compare-card div{font-size:12px;color:#526158;margin:3px 0}.restore-dialog .dialog-actions{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin-top:17px}.monitor-update{padding:16px 18px;margin:12px 0}.monitor-update h3{font-size:15px;margin:0 0 7px}.monitor-update p{font-size:12px;color:#526158;margin:7px 0}.upcoming-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:12px}.upcoming-item{border:1px solid var(--line);border-radius:10px;padding:9px;background:#fafbfa}.upcoming-item b{display:block;font-size:11px}.upcoming-item span,.upcoming-item small{display:block;font-size:10px;color:var(--muted);margin-top:3px}
+    @media(max-width:820px){.edit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.upcoming-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:560px){.workspace-tools{gap:6px}.workspace-tools .tool-note{width:100%;margin-left:0}.edit-grid,.edit-grid.three{grid-template-columns:1fr 1fr}.edit-grid.two{grid-template-columns:1fr}.edit-row{align-items:flex-start;flex-direction:column}.upcoming-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    .rule-lines{padding-left:18px;margin:10px 0 0}.rule-lines li{margin:5px 0;font-size:12px;color:#526158}
+    .setup-guide{padding:16px 18px;margin:12px 0}.setup-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:12px}.setup-step{border:1px solid var(--line);border-radius:11px;padding:11px;background:#fbfcfb;min-width:0}.setup-step.done{border-color:#c9e0d0;background:#f2f8f4}.setup-step.review{border-color:#efd9aa;background:#fffaf0}.setup-step-title{font-size:12px;font-weight:760}.setup-step-detail{font-size:11px;color:var(--muted);margin-top:4px;overflow-wrap:anywhere}.setup-step .mini-btn{margin-top:8px}.setup-tip{font-size:11px;color:var(--muted);margin:10px 0 0}
+    @media(max-width:560px){.setup-guide{padding:14px}.setup-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="top">
+      <div class="brand"><span class="logo">家</span><span>家庭投资助手</span></div>
+      <div class="top-right"><span class="demo" id="dataset-badge">完全虚构 · 演示数据</span><span class="asof" id="asof"></span></div>
+    </header>
+    <section class="hero">
+      <div class="panel hero-main">
+        <div class="eyebrow">家庭资产健康与挂单检查 · 首版</div>
+        <h1>先看资产逻辑，<br class="mobile-only">再看手上怎么挂单</h1>
+        <p class="lede">战略复核和周期波段分开显示。系统给出依据与复算，家人自己决定是否调整券商挂单。</p>
       </div>
+      <div class="panel hero-side"><div class="side-label">当前需要人工处理的事项</div><div class="side-value" id="action-count">—</div><div class="side-note" id="action-note"></div></div>
+    </section>
+    <div class="workspace-tools" aria-label="本地数据操作">
+      <button class="btn primary" id="new-blank">新建空白数据</button>
+      <button class="btn" id="import-trigger">导入 JSON</button>
+      <button class="btn" id="export-data">导出当前数据</button>
+      <input class="toolbar-hidden" type="file" id="import-file" accept="application/json,.json">
+      <span class="tool-note" id="workspace-note">数据仅在当前页面内编辑；刷新前请导出保存。</span>
     </div>
-    <div id="toast" class="toast" role="status" aria-live="polite"></div>
-    <script>
-      if (window.location.protocol === "file:") {
-        document.querySelector(".file-protocol-help").hidden = false;
+    <div class="inline-note warning" id="foundation-note"></div>
+    <nav class="nav" aria-label="主导航">
+      <button class="active" data-tab="overview">总览</button>
+      <button data-tab="holdings">持仓批次</button>
+      <button data-tab="orders">买卖挂单</button>
+      <button data-tab="trades">成交记录</button>
+      <button data-tab="strategy">投资规则</button>
+      <button data-tab="checks">资金与数据</button>
+    </nav>
+    <div id="view"></div>
+    <footer class="footer" id="footer-note"></footer>
+  </main>
+  <dialog class="restore-dialog" id="restore-dialog" aria-labelledby="restore-title">
+    <h2 id="restore-title">确认恢复这份备份？</h2>
+    <p id="restore-file-info"></p>
+    <div class="compare-grid">
+      <section class="compare-card"><h3>当前页面</h3><div id="current-summary"></div></section>
+      <section class="compare-card"><h3>待恢复文件</h3><div id="incoming-summary"></div></section>
+    </div>
+    <p>确认后，文件内容会替换当前页面中的数据。恢复不会修改原备份文件，也不会自动保存页面后续编辑。</p>
+    <div class="dialog-actions"><button class="btn" id="cancel-restore" type="button">取消</button><button class="btn primary" id="confirm-restore" type="button">确认恢复并替换</button></div>
+  </dialog>
+  <script type="application/json" id="app-data">{"asOf":"2026-10-24","simulationOnly":false,"productMode":"formal","monitoringAsOf":"2026-10-24","monitoringCards":[{"name":"腾讯","ticker":"0700.HK","period":"2026年上半年","status":"经营增长，资本结构待复核","statusClass":"","metrics":[["营收同比","+10.1%"],["归母利润同比","+10.3% / +9.6%"]],"detail":"H1末净现金为人民币581.9亿元，低于Q1末的1468.6亿元；公司将下降主要联系到资本开支现金支付和年度股息。10月22日又完成发行美元18亿元及人民币260亿元票据，并披露各期限票据的定价补充文件。须在Q3复核发行后净现金、借款、财务费用、经营现金流和资金用途；H1快照不能替代发行后资本结构。","valuationSnapshot":"截至2026-10-21收盘HK$393.80：约12.9倍TTM IFRS归母利润、11.2倍non-IFRS归母利润。后者为公司调整口径；历史区间和五年假设尚未校准，暂不分类。","valuationStatus":"暂不分类","next":"Q3看营收、两种利润口径、发行后净现金、借款与票据余额、财务费用、经营现金流、资本开支及资金用途。","referenceSignal":"段永平有历史本人持有自述，未核实到更晚的直接更新；港股不在H&H/伯克希尔13F范围。","decision":"继续核实；H1营收和利润仍增长，尚未发现经营逻辑失效。新票据叠加H1净现金下降，构成Q3重点复核事项；本次不构成已确认的清仓依据。","reportNext":"腾讯官方日历安排2026Q3于11月18日公布；届时核对营收、IFRS/non-IFRS利润、净现金、借款与票据余额、财务费用、经营现金流和资本开支。"},{"name":"贵州茅台","ticker":"600519.SH","period":"2026年上半年","status":"继续核实","statusClass":"","metrics":[["营收同比","+1.47%"],["归母利润同比","−1.95%"]],"detail":"利润下降尚不能说明长期逻辑失效。重点看终端需求、渠道改革、成本变化是否让利润压力延续。","valuationSnapshot":"截至2026-10-21收盘人民币1,309.69元：按报表滚动EPS约65.05元计算，约20.1倍TTM市盈率。2026H1利润同比下降且价格体系处于改革期，盈利基线未稳定，暂不分类。","valuationStatus":"暂不分类","next":"等公司正式发布Q3；10月31日仅为第三方预约日期。","referenceSignal":"媒体转引段永平9月28日买入3万股截图，原帖未直接核验；后续持仓未知。","decision":"继续核实；利润转弱需要解释，尚未证明长期逻辑失效。","reportNext":"观察Q3单季收入、利润、成本和渠道；10月31日是第三方预约日，等公司正式发布。"},{"name":"苹果","ticker":"AAPL","period":"FY2026前三季度","status":"继续核实","statusClass":"","metrics":[["营收同比","+16.1%"],["净利润同比","+20.0%"]],"detail":"伯克希尔Q2申报股数与Q1相同；H&H减少约6.4%，属于机构快照，不等同段永平本人卖出。","valuationSnapshot":"截至2026-10-21收盘US$344.09：报表滚动摊薄EPS约US$8.72，对应约39.5倍；扣除公司披露的Q3每股US$0.11关税退款后约40.0倍。增长仍需情景校准，暂不分类。","valuationStatus":"暂不分类","next":"11月2日复核FY2026Q4业绩、关税退款影响及新CEO说明。","referenceSignal":"伯克希尔Q2 13F苹果股数与Q1相同；H&H申报股数减少约6.4%。均为机构快照，不等于相应投资者个人实时卖出。","decision":"继续核实；近期经营增长，机构持有变化需与实际买入依据分开判断。","reportNext":"苹果FY2026Q4正式业绩和新CEO首次完整业绩说明；官方安排11月2日。"},{"name":"拼多多","ticker":"PDD","period":"2026年上半年","status":"继续核实","statusClass":"","metrics":[["营收 / 营业利润同比","+9.5% / +13.0%"],["净利润同比","−12.7%"]],"detail":"H&H Q2申报股数增加约26.7%；其他损益的来源仍未解释。低市盈率不能替代盈利质量核查。","valuationSnapshot":"截至2026-10-21收盘US$78.69：按滚动GAAP摊薄EPS约人民币62.21元/ADS、汇率6.7192估算，约8.5倍。H1其他损益构成未明，不能视为常态盈利，暂不分类。","valuationStatus":"暂不分类","next":"等Q3公告，查看其他损益及营业利润能否转成净利润。","referenceSignal":"段永平2025年雪球访谈谈及持有并提醒风险；H&H Q2申报股数环比增加约26.7%；伯克希尔Q2未列PDD。","decision":"继续核实；盈利质量仍有未解问题，低市盈率不构成买入结论。","reportNext":"等Q3正式报告，检查其他损益是否延续/逆转及营业利润能否转成净利润；发布日期待公司公告。"}],"monitoringReferences":[{"label":"四项资产研究总览","href":"知识库/25-四项资产研究总览-2026-10-21.md"},{"label":"2026-10-22公开披露更新验证","href":"知识库/31-2026-10-22公开披露更新验证.md"},{"label":"四项资产财报快筛与披露扫描记录","href":"知识库/28-四项资产财报快筛-2026-10-22.md"},{"label":"经营逻辑与清仓复核条件","href":"知识库/29-四项资产经营逻辑与清仓复核条件-2026-10-22.md"},{"label":"参考持有监控方法","href":"知识库/18-参考持有变化监控方法.md"},{"label":"估值方法","href":"知识库/26-估值区间与情景分析方法-v0.1.md"},{"label":"2026-10-24公开披露更新验证","href":"知识库/32-2026-10-24公开披露更新验证.md"},{"label":"腾讯经营与估值底稿","href":"知识库/11-腾讯多年经营与估值初筛.md"},{"label":"贵州茅台经营与估值底稿","href":"知识库/14-贵州茅台经营健康度初筛-2026H1.md"},{"label":"苹果经营与估值底稿","href":"知识库/15-苹果经营健康度初筛-FY2026Q3.md"},{"label":"拼多多经营与估值底稿","href":"知识库/24-PDD经营健康度初筛-2026H1.md"}],"monitoringValuation":"估值状态：四项均暂不分类","monitoringSnapshot":"截至2026-10-24完成一次人工公开披露复核。四项最新经营报告仍为原基线；腾讯10月22日完成并披露票据发行细项，列为Q3重点复核事项。H&H与伯克希尔最新核实13F仍截至Q2，Q3法定截止日为11月16日。本轮没有发现足以确认战略清仓的依据。下表不含券商账户、实时价格、家庭持仓成本或当前委托。","monitoringSummary":"截至10月24日，四项经营报告基线未变；腾讯10月22日完成发行18亿美元及人民币260亿元票据并披露定价细项，应在Q3复核发行后净现金、借款、财务费用和资金用途。茅台上交所最新报告仍为H1；苹果FY2026Q4安排11月2日；拼多多官方最新结果为Q2。H&H与伯克希尔最新可核实13F为Q2，Q3申报截止11月16日。没有确认清仓信号。","monitoringTimeline":[{"date":"10月31日 · 待官方确认","event":"贵州茅台 Q3","note":"第三方预约日期"},{"date":"11月2日 · 官方安排","event":"苹果 FY2026 Q4","note":"业绩电话会"},{"date":"11月16日 · SEC申报截止","event":"H&H / 伯克希尔 Q3 13F","note":"到期后核对公开申报；不得把未申报写成持仓未变"},{"date":"11月18日 · 官方安排","event":"腾讯 2026 Q3","note":"业绩发布；核对营收、利润、现金与新增票据"},{"date":"日期未公布","event":"拼多多 Q3","note":"等待公司公告"}],"strategyRules":{"schemaVersion":1,"updatedAt":"2026-10-27","status":"首版正式规则底稿","purpose":"供用户及至亲在本地手工维护资产健康、持仓、现金及挂单计划。","execution":"首版不融资、不自动交易；家人手动录入和调整券商挂单。","selection":"以生意质量和估值为先，参考段永平与巴菲特公开持有信息；优质个股保持少而精，初版观察池最多5只。全球指数配置单独研究，不与个股规则混用。","xByCanonicalTicker":{"HK:700":0.04,"CN:510300":0.02},"sections":[{"title":"战略：选什么、为何持有","lines":["优先参考段永平和巴菲特重仓、长期持有过的优质资产，再核对生意质量、持续盈利能力与估值；不把参考持有人快照当成实时信息。","新建仓、清仓后重建仓或无既有短期成交依据的买入，先判断估值是否适中或偏低；高估时不建新仓。","已确认标的战略风险或原买入逻辑实质失效，清仓该标的全部持仓，包括战略仓和波段仓；价格下跌本身不触发止损。","参考投资者退出只影响战略清仓判断：只有退出事实、申报范围与记录的买入依据都匹配后，才进入建议清仓判断；不改变波段交易。"]},{"title":"战术：价格波动和双向挂单","lines":["买入一份后，价格上涨约x时卖出一份；卖出后，按该卖价回撤约2x设置买回参考；买回后重新接上上涨x卖出。","x按标的波动性设定：用户给出的腾讯参考为4%，中国宽基指数示例为2%；其他标的未完成校准前不预填。","新建仓参考近7天最高价回撤约2x；超过一个月未买入且有资金时，按近7天最高价重新设置买入参考。实际价格可让价以争取成交。","挂单价是对未来价格的模糊参考，不追求最后一点差价；不盯盘时可在参考价附近主动让价，优先提高成交机会并保留现金。暂不把均线和九转纳入首版规则。","短期为1个月，中期为2至3个月，超过3个月为长期；持有期限分类本身不触发买卖。"]},{"title":"库存减持：21个交易日低点分档","lines":["从最近21个交易日最低价计算涨幅。以x=4%为例：上涨4x卖一份；6x累计卖两份；8x累计卖三份；每增加2x，累计目标只增加一份，不加速卖出。","以x=2%的中国宽基指数示例，依次对应约8%、12%、16%的累计卖出目标。","滚动低点越窗后的档位重置规则尚未由用户明确；历史模拟采用的重置方式仅是情景假设，正式执行前由家人核对实际记录。"]},{"title":"边界：资金和人工执行","lines":["组合目标是尽量同时保有可买入现金和可卖出股票；估值高时持股倾向少，估值低时持股倾向多，由估值和交易结果自然形成，不设固定仓位比例。现金代表安全余地，持股代表承担风险。","首版按不融资处理；现金是安全垫，现金不足时不自动借款。","尽量同时维护一张买单和一张卖单；页面给出规则参考和资金核对，实际委托由人手动挂单、改价或撤单。","研究卡只使用注明报告期和日期的公开资料；系统不读取券商账户、不监控实时价格、不自动提交委托。"]}],"historicalSample":{"asset":"腾讯控股（0700.HK）","seedDate":"2023-04-25","seedPriceHkd":333,"basis":"用户提供的首次建仓日期和价格；其余样本使用本地保存的腾讯历史日线及派息数据。","interpretation":"归一化仓位的历史规则演练，不是账户流水重建或收益承诺。","resultSummary":"腾讯历史日线样本中，五份持有对照区间回报+58.50%、最大回撤−27.59%；加入21日低点分档后，4核心+1波段为+11.03%（固定回补）/ +37.55%（超月重锚），3核心+2波段为+17.55% / +39.11%。四种主动策略样本期末均为0份股票、等待买回。该结果显示规则存在卖空核心库存的风险，不支持必然跑赢持有。","reports":[{"label":"五份仓位与双向订单历史模拟","href":"产品化原型/腾讯五份仓位回测-2023-04-25至2025-07-15.md"},{"label":"21日低点库存减持历史模拟","href":"产品化原型/腾讯五份含库存减持模拟-2023-04-25至2025-07-15.md"},{"label":"有限现金与重建仓压力测试","href":"产品化原型/连续下跌有限现金压力测试-模拟路径.md"}]}},"leverage_balance":0,"cash":[],"assets":[],"alerts":[{"name":"腾讯","code":"0700.HK","decision":"继续核实","kind":"warning","summary":"继续核实；H1营收和利润仍增长，尚未发现经营逻辑失效。新票据叠加H1净现金下降，构成Q3重点复核事项；本次不构成已确认的清仓依据。","nextStep":"Q3看营收、两种利润口径、发行后净现金、借款与票据余额、财务费用、经营现金流、资本开支及资金用途。"},{"name":"贵州茅台","code":"600519.SH","decision":"继续核实","kind":"warning","summary":"继续核实；利润转弱需要解释，尚未证明长期逻辑失效。","nextStep":"等公司正式发布Q3；10月31日仅为第三方预约日期。"},{"name":"苹果","code":"AAPL","decision":"继续核实","kind":"warning","summary":"继续核实；近期经营增长，机构持有变化需与实际买入依据分开判断。","nextStep":"11月2日复核FY2026Q4业绩、关税退款影响及新CEO说明。"},{"name":"拼多多","code":"PDD","decision":"继续核实","kind":"warning","summary":"继续核实；盈利质量仍有未解问题，低市盈率不构成买入结论。","nextStep":"等Q3公告，查看其他损益及营业利润能否转成净利润。"}],"transactions":[],"foundationNote":"正式家庭工作页 · 公开研究资料截至 2026-10-24。账户数据从空白开始；请按实际账户手工录入持仓、现金与委托。腾讯HK$333样本仅用于规则历史演练，不代表当前家庭持仓。"}</script>
+  <script>
+    const original = JSON.parse(document.getElementById('app-data').textContent);
+    let data = JSON.parse(JSON.stringify(original));
+    let activeTab = 'overview';
+    let hasUnsavedChanges = false;
+    const $ = (s, root=document) => root.querySelector(s);
+    const money = (v, currency) => new Intl.NumberFormat('zh-CN',{maximumFractionDigits:2}).format(Number(v)||0) + ' ' + currency;
+    const expected = (order,x) => order.side === 'sell' ? Number(order.reference_price||0)*(1+Number(x||0)) : Number(order.reference_price||0)*(1-2*Number(x||0));
+    const deltaPct = (v,base) => base ? ((v/base-1)*100).toFixed(2)+'%' : '—';
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const today = () => {const d=new Date();return new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10);};
+    const inputField = (label,value,attrs,type='text',step=null) => `<label class="field"><div class="field-label">${esc(label)}</div><input type="${type}" ${step?`step="${step}"`:''} value="${esc(value)}" ${attrs}></label>`;
+    const selectField = (label,value,attrs,options) => `<label class="field"><div class="field-label">${esc(label)}</div><select ${attrs}>${options.map(o=>`<option value="${esc(o.value)}" ${value===o.value?'selected':''}>${esc(o.label)}</option>`).join('')}</select></label>`;
+    const orderIsActive = o => !['cancelled','canceled','filled','executed','inactive','closed','已撤销','已成交'].includes(String(o.status||'active').toLowerCase());
+    const canonicalAssetCode = code => {
+      const value=String(code||'').trim().toUpperCase().replace(/\s+/g,'');
+      const hk=value.match(/^0*(\d+)\.HK$/);if(hk)return `HK:${Number(hk[1])}`;
+      const cn=value.match(/^(\d+)\.(SH|SS)$/);if(cn)return `CN:${cn[1]}`;
+      if(value==='510300')return 'CN:510300';
+      return value;
+    };
+    const requiredBuyCash = currency => data.assets.reduce((sum,a)=>sum+(a.currency===currency?(a.orders||[]).filter(o=>o.side==='buy'&&orderIsActive(o)).reduce((n,o)=>n+(Number(o.quantity)||0)*(Number(o.limit_price)||0),0):0),0);
+    function ensureCash(currency){
+      if(currency && !data.cash.some(c=>c.currency===currency)) data.cash.push({currency,balance:0,balanceReviewed:false,reserved_for_buy_orders:0,available_after_orders:0});
+    }
+    const cashBalanceValid=value=>String(value??'').trim()!==''&&Number.isFinite(Number(value))&&Number(value)>=0;
+    function render(){
+      $('#asof').textContent = `数据时点：${String(data.asOf||today()).slice(0,10)}`;
+      $('#dataset-badge').textContent = data.simulationOnly ? (data.monitoringAsOf?`模拟账户 · 公开研究至 ${String(data.monitoringAsOf).slice(0,10)}`:'完全虚构 · 演示数据') : (data.productMode==='formal'?`正式资料截至 ${String(data.monitoringAsOf||'').slice(0,10)}`:'本地手工数据');
+      $('#action-count').textContent = (data.alerts||[]).filter(a => a.decision !== '暂无新增判断').length;
+      const clearCount=(data.alerts||[]).filter(a=>String(a.decision||'').startsWith('建议清仓')).length;
+      const reviewCount=(data.alerts||[]).filter(a=>String(a.decision||'').startsWith('继续核实')).length;
+      $('#action-note').textContent = clearCount||reviewCount ? `${reviewCount}项继续核实 · ${clearCount}项清仓判断` : '当前无待处理提醒';
+      $('#foundation-note').textContent = data.foundationNote || '本地编辑数据；战略风险确认后建议清仓该标的全部持仓，交易由人手动处理。';
+      $('#workspace-note').textContent = hasUnsavedChanges ? '有未导出修改；刷新或关闭页面会丢失，请先导出当前数据。' : (data.simulationOnly ? '演示数据修改只留在当前页面；请导出保存。' : '手工数据只留在当前页面；请导出 JSON 保存。');
+      $('#workspace-note').className = hasUnsavedChanges ? 'tool-note warning' : 'tool-note';
+      $('#footer-note').textContent = data.simulationOnly
+        ? '本地演练页不联网、不自动保存、不连接券商、不提交委托。演示账户为虚构；研究卡只反映所标日期的公开资料。调整只留在当前页面，请导出JSON保存。战略风险确认后清仓该标的全部持仓；现有买单仍可能重新建仓。'
+        : `正式家庭工作页不联网、不自动保存、不连接券商、不提交委托。公开研究资料截至 ${String(data.monitoringAsOf||'未记录').slice(0,10)}；持仓、现金与委托从空白开始，由家庭成员按实际账户录入。页面修改只留在当前页面，请导出JSON保存。战略风险确认后清仓该标的全部持仓；现有买单仍可能重新建仓。`;
+      document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===activeTab));
+      const view = $('#view');
+      if(activeTab==='overview') view.innerHTML = renderOverview();
+      if(activeTab==='holdings') view.innerHTML = renderHoldings();
+      if(activeTab==='orders') view.innerHTML = renderOrders();
+      if(activeTab==='trades') view.innerHTML = renderTransactions();
+      if(activeTab==='strategy') view.innerHTML = renderStrategyRules();
+      if(activeTab==='checks') view.innerHTML = renderCash();
+      bindEvents();
+    }
+    function renderOverview(){
+      const alerts=(data.alerts||[]).length?`<div class="alert-grid">${data.alerts.map(a=>`<article class="panel alert ${esc(a.kind||'neutral')}"><div class="alert-top"><span class="badge ${esc(a.kind||'neutral')}">${esc(a.decision||'待核实')}</span>${a.scenarioOnly?'<span class="scenario-label">模拟情景</span>':''}<span class="subtle">${esc(a.code||'')}</span></div><h3>${esc(a.name||'')}</h3><p>${esc(a.summary||'')}</p><div class="next-step"><b>下一步：</b>${esc(a.nextStep||'人工复核')}</div></article>`).join('')}</div>`:'<div class="empty">当前没有录入资产提醒。可到“持仓批次”新增标的和持仓。</div>';
+      const assets=(data.assets||[]).length?`<div class="asset-grid">${data.assets.map(a=>`<article class="panel asset"><div class="asset-head"><div><div class="asset-name">${esc(a.name)}</div><div class="ticker">${esc(a.code)} · ${esc(a.currency)}</div></div><span class="badge ${esc(a.statusKind||'neutral')}">${esc(a.status||'未设监控状态')}</span></div><div class="asset-meta">参考价 ${money(a.reference_price,a.currency)} · x=${formatX(a.x)}</div><div class="asset-reason">${esc(a.shortReason||a.holding_rationale||'由家庭成员手动维护')}</div><div class="asset-bottom"><span>${(a.holdings||[]).length}个持仓批次</span><span>${(a.orders||[]).filter(o=>o.side==='buy').length}买 / ${(a.orders||[]).filter(o=>o.side==='sell').length}卖</span></div></article>`).join('')}</div>`:'<div class="empty">还没有标的。使用“新建空白数据”后，可在“持仓批次”页面添加。</div>';
+      return `${renderCashSummary()}${renderSetupGuide()}<div class="section-title"><h2>需要你看的信号</h2><span class="subtle">没有触发事项时不发提醒</span></div>${alerts}${renderHealthCards()}${renderMonitoringUpdate()}${renderStrategyRules(true)}<div class="section-title"><h2>账户资产</h2><span class="subtle">战略复核不替代波段交易判断</span></div>${assets}`;
+    }
+    function formatX(value){const x=Number(value);return Number.isFinite(x)&&x>0&&x<1?`${(x*100).toFixed(2).replace(/\.00$/,'')}%`:'待评估';}
+    function renderStrategyRules(compact=false){
+      const rules=data.strategyRules;if(!rules)return '';
+      const sections=rules.sections||[];
+      const cards=(compact?sections.slice(0,2):sections).map(section=>`<article class="panel asset"><div class="asset-name">${esc(section.title||'')}</div><ul class="rule-lines">${(section.lines||[]).map(line=>`<li>${esc(line)}</li>`).join('')}</ul></article>`).join('');
+      const sample=rules.historicalSample||{};
+      const reports=(sample.reports||[]).map(r=>`<a href="${esc(r.href)}">${esc(r.label)}</a>`).join(' · ');
+      return `<div class="section-title"><h2>当前投资规则</h2><span class="subtle">${esc(rules.status||'规则底稿')} · ${esc(rules.updatedAt||'')}</span></div><div class="inline-note">${esc(rules.execution||'')} x参考：腾讯 ${formatX(rules.xByCanonicalTicker?.['HK:700'])}；沪深300 ${formatX(rules.xByCanonicalTicker?.['CN:510300'])}；其他资产按各自波动性评估后设置。</div><div class="asset-grid">${cards}</div>${!compact?`<section class="panel monitor-update"><h3>历史规则样本 · 独立于家庭账户</h3><p>${esc(sample.asset||'')} · 种子日期 ${esc(sample.seedDate||'')} · 首笔价格 HK$${esc(sample.seedPriceHkd||'')}</p><p>${esc(sample.basis||'')}</p><p>${esc(sample.interpretation||'')}</p>${sample.resultSummary?`<div class="inline-note warning">${esc(sample.resultSummary)}</div>`:''}<p>${reports}</p></section>`:''}`;
+    }
+    function renderHealthCards(){
+      const cards=data.monitoringCards||[];if(!cards.length)return '';
+      const refs=(data.monitoringReferences||[]).map(r=>`<a href="${esc(r.href)}">${esc(r.label)}</a>`).join(' · ');
+      const rendered=cards.map(c=>{
+        const metrics=(c.metrics||[]).map(m=>`<span><b>${esc(m[0])}</b> ${esc(m[1])}</span>`).join(' · ');
+        const action=String(c.decision||'继续核实');
+        const badgeClass=action.startsWith('建议清仓')?'clear':'neutral';
+        const local=(data.assets||[]).find(a=>canonicalAssetCode(a.code)===canonicalAssetCode(c.ticker));
+        let accountLine='本地账户：尚未录入代码匹配的资产';
+        let clearLine='';
+        if(local){
+          const lots=local.holdings||[],quantity=lots.reduce((n,h)=>n+(Number(h.quantity)||0),0),strategic=lots.filter(h=>h.holding_type==='战略仓'),withRationale=strategic.filter(h=>String(h.purchase_rationale_reference||h.purchase_rationale||'').trim()).length;
+          const buyCount=(local.orders||[]).filter(o=>o.side==='buy'&&orderIsActive(o)).length,sellCount=(local.orders||[]).filter(o=>o.side==='sell'&&orderIsActive(o)).length;
+          accountLine=`本地登记：${quantity} 股/份 · 战略依据字段 ${withRationale}/${strategic.length} 批 · 有效挂单 ${buyCount} 买/${sellCount} 卖`;
+          if(action.startsWith('建议清仓'))clearLine=quantity>0?`如战略风险已确认并由家人决定执行，清仓范围按既定规则覆盖本地登记的全部 ${quantity} 股/份；现有委托不自动调整，活跃买单仍可能成交。`:`本地当前无登记持仓；现有委托不自动调整${buyCount?`，仍有 ${buyCount} 张有效买单，后续成交可能重新建立仓位`:''}。`;
+        }
+        return `<article class="panel asset health-card"><div class="asset-head"><div><div class="asset-name">${esc(c.name)}</div><div class="ticker">${esc(c.ticker)} · ${esc(c.period)} · 公开资料截至 ${esc(data.monitoringAsOf||'未记录')}</div></div><span class="badge ${badgeClass}">${esc(action.split('；')[0])}</span></div><div class="asset-meta">${metrics}</div><div class="asset-reason"><b>经营观察：</b>${esc(c.detail||'未填写')}</div><div class="asset-reason"><b>参考持有：</b>${esc(c.referenceSignal||'暂无已核实信号')}</div><div class="asset-reason"><b>估值快照：</b>${esc(c.valuationSnapshot||'缺少估值基线，暂不分类。')}</div><div class="asset-reason"><b>下一步：</b>${esc(c.next||c.reportNext||'等待下一次复核')}</div><div class="asset-reason"><b>本地持仓对应：</b>${esc(accountLine)}</div>${clearLine?`<div class="inline-note warning">${esc(clearLine)}</div>`:''}<div class="asset-bottom"><span>${esc(c.status||'未分类')}</span><span>估值状态：${esc(c.valuationStatus||data.monitoringValuation||'暂不分类')}</span></div></article>`;
+      }).join('');
+      return `<div class="section-title"><h2>长期资产健康与参考持有</h2><span class="subtle">人工研究快照 · 按证券代码匹配本地登记</span></div><div class="asset-grid">${rendered}</div><div class="inline-note">当前行动反映公开财报与披露的研究结论；“本地持仓对应”仅按证券代码核对登记数量，不读取券商账户或实时持仓。参考持有人变化只在与已记录买入依据对应时进入战略清仓判断，不改变波段规则。估值标签不完整时保持“暂不分类”。${refs?`<br><b>研究底稿：</b>${refs}`:''}</div>`;
+    }
+    function renderMonitoringUpdate(){
+      if(!data.monitoringSummary&&!data.monitoringTimeline?.length)return '';
+      const timeline=(data.monitoringTimeline||[]).map(t=>`<div class="upcoming-item"><b>${esc(t.date||'日期未定')}</b><span>${esc(t.event||'待复核')}</span><small>${esc(t.note||'')}</small></div>`).join('');
+      return `<section class="panel monitor-update"><h3>本轮披露复核与下次日期</h3><p>${esc(data.monitoringSnapshot||'')}</p><p><b>本次重点：</b>${esc(data.monitoringSummary||'暂无新增变化')}</p>${timeline?`<div class="upcoming-list">${timeline}</div>`:''}</section>`;
+    }
+    function renderCashSummary(){
+      const cards=(data.cash||[]).map(c=>{const reserved=requiredBuyCash(c.currency),free=(Number(c.balance)||0)-reserved;return `<div class="panel cash-card"><div class="cash-currency">${esc(c.currency)}现金</div><div class="cash-balance">${money(c.balance,c.currency)}</div><div class="cash-details"><span>买单冻结 ${money(reserved,c.currency)}</span><span>可用 ${money(free,c.currency)}</span></div></div>`}).join('');
+      return `<div class="section-title"><h2>账户快照</h2><span class="subtle">首版按不融资处理</span></div>${cards?`<div class="cash-grid">${cards}</div>`:'<div class="empty">尚未录入现金。</div>'}`;
+    }
+    function renderSetupGuide(){
+      if(data.simulationOnly)return '';
+      const assets=data.assets||[],lots=assets.flatMap(a=>a.holdings||[]).filter(h=>Number(h.quantity)>0).length;
+      const currencies=[...new Set(assets.map(a=>String(a.currency||'').trim().toUpperCase()).filter(Boolean))];
+      const unchecked=currencies.filter(currency=>!data.cash.some(c=>String(c.currency||'').toUpperCase()===currency&&c.balanceReviewed===true));
+      const missingOrders=assets.flatMap(a=>{
+        const active=(a.orders||[]).filter(o=>orderIsActive(o)&&Number(o.quantity)>0&&Number(o.limit_price)>0),missing=[];
+        if(!active.some(o=>o.side==='buy'))missing.push('缺买单');
+        if(!active.some(o=>o.side==='sell'))missing.push('缺卖单');
+        return missing.length?[`${a.name||a.code}：${missing.join('、')}`]:[];
+      });
+      const fieldIssues=portfolioChecks().filter(issue=>issue.title.includes('标的信息不完整')||issue.title.includes('持仓缺项'));
+      const fieldIssueSummary=fieldIssues.slice(0,2).map(issue=>`${issue.title}：${issue.detail.replace('还需补充：','')}`).join('；');
+      const orderFieldIssues=portfolioChecks().filter(issue=>issue.title.includes('有效委托缺项'));
+      const orderFieldIssueSummary=orderFieldIssues.slice(0,2).map(issue=>`${issue.title}：${issue.detail.replace('还需补充：','')}`).join('；');
+      const assetStatus=assets.length?`${assets.length} 项标的已录入；${lots} 批有数量的持仓。${fieldIssues.length?`待补齐：${fieldIssueSummary}${fieldIssues.length>2?`；另有 ${fieldIssues.length-2} 项缺项`:''}`:`标的信息和已录入批次的必填项齐全。${lots?'':'若目前确为空仓，可暂不添加持仓批次。'}`}`:'先录入要跟踪的标的。';
+      const cashStatus=!currencies.length?'添加标的后，按币种核对券商现金余额。':unchecked.length?`待按账户核对：${unchecked.join('、')}`:`已核对 ${currencies.length} 个币种的现金余额。`;
+      const orderStatus=!assets.length?'录入标的后，为每项核对有效买单和卖单。':[...missingOrders,...(orderFieldIssueSummary?[`待补齐：${orderFieldIssueSummary}${orderFieldIssues.length>2?`；另有 ${orderFieldIssues.length-2} 项缺项`:''}`]:[])].join('；')||'每项标的都有有效买单和卖单。';
+      const steps=[
+        {title:'1. 标的与持仓',detail:assetStatus,state:assets.length&&!fieldIssues.length?'done':'review',button:assets.length?'查看标的与持仓':'新增第一个标的',tab:'holdings'},
+        {title:'2. 现金余额',detail:cashStatus,state:unchecked.length?'review':currencies.length?'done':'review',button:'去核对现金',tab:'checks'},
+        {title:'3. 买单与卖单',detail:orderStatus,state:missingOrders.length||orderFieldIssues.length||!assets.length?'review':'done',button:'去维护挂单',tab:'orders'},
+        {title:'4. 导出备份',detail:hasUnsavedChanges?'当前有未导出修改，刷新或关闭前先保存。':'当前没有未导出修改。',state:hasUnsavedChanges?'review':'done',button:'导出当前数据',export:true},
+      ];
+      const rows=steps.map(step=>`<article class="setup-step ${step.state}"><div class="setup-step-title">${esc(step.title)}</div><div class="setup-step-detail">${esc(step.detail)}</div><button class="mini-btn ${step.export?'primary':''}" data-action="${step.export?'export-current':'guide-tab'}" ${step.tab?`data-tab="${step.tab}"`:''}>${esc(step.button)}</button></article>`).join('');
+      return `<section class="panel setup-guide"><div><h2 class="setup-step-title">${assets.length?'账户维护清单':'首次设置清单'}</h2><div class="subtle">按顺序核对；未使用的部分可以跳过。</div></div><div class="setup-grid">${rows}</div><p class="setup-tip">现金余额需对照账户核实；每项标的的买卖委托由家人手动维护。导出 JSON 后才会保存到文件。</p></section>`;
+    }
+    function renderHoldings(){
+      const assets=(data.assets||[]).map((a,ai)=>`<section class="panel asset-editor"><div class="edit-row"><strong>${esc(a.name||'未命名标的')} · ${esc(a.code||'待填代码')}　持仓合计 ${(a.holdings||[]).reduce((s,h)=>s+(Number(h.quantity)||0),0)} 股/份</strong><button class="mini-btn danger-btn" data-action="remove-asset" data-ai="${ai}">删除标的</button></div><div class="edit-grid">${inputField('标的名称',a.name,`data-model="asset" data-ai="${ai}" data-field="name"`)}${inputField('证券代码',a.code,`data-model="asset" data-ai="${ai}" data-field="code"`)}${inputField('币种',a.currency,`data-model="asset" data-ai="${ai}" data-field="currency"`)}${inputField('当前参考价',a.reference_price,`data-model="asset" data-ai="${ai}" data-field="reference_price"`,'number','any')}${inputField('波动参考 x（%）',a.x?(Number(a.x)*100).toFixed(2):'',`data-model="asset" data-ai="${ai}" data-field="xPercent"`,'number','0.01')}</div><div class="edit-row"><strong>持仓批次</strong><button class="mini-btn" data-action="add-lot" data-ai="${ai}">新增持仓批次</button></div>${(a.holdings||[]).length?(a.holdings||[]).map((h,hi)=>`<article class="panel lot"><div class="edit-row"><strong>${esc(h.holding_type||'未分类批次')} · ${Number(h.quantity)||0} 股/份</strong><button class="mini-btn danger-btn" data-action="remove-lot" data-ai="${ai}" data-hi="${hi}">删除批次</button></div><div class="edit-grid">${inputField('数量',h.quantity,`data-model="holding" data-ai="${ai}" data-hi="${hi}" data-field="quantity"`,'number','any')}${inputField('买入日期',h.purchase_date,`data-model="holding" data-ai="${ai}" data-hi="${hi}" data-field="purchase_date"`,'date')}${inputField('买入价',h.purchase_price,`data-model="holding" data-ai="${ai}" data-hi="${hi}" data-field="purchase_price"`,'number','any')}<label class="field"><div class="field-label">持仓类别</div><select data-model="holding" data-ai="${ai}" data-hi="${hi}" data-field="holding_type"><option value="">待分类</option><option value="战略仓" ${h.holding_type==='战略仓'?'selected':''}>战略仓</option><option value="波段仓" ${h.holding_type==='波段仓'?'selected':''}>波段仓</option></select></label>${inputField('买入依据 / 参考来源',h.purchase_rationale_reference||h.purchase_rationale||'',`data-model="holding" data-ai="${ai}" data-hi="${hi}" data-field="purchase_rationale_reference"`)}</div></article>`).join(''):'<div class="empty">暂无持仓批次。可以先录入标的，再添加批次。</div>'}<p class="input-help">战略批次请记录买入依据，便于判断参考投资者信号是否适用。战略风险确认后，清仓建议覆盖该标的全部持仓。</p></section>`).join('');
+      return `${renderSetupGuide()}<div class="section-title"><h2>标的与持仓录入</h2><span class="subtle">数量、类别和买入依据由家庭成员维护</span></div><article class="panel add-form"><h3>新增标的</h3><div class="edit-grid">${inputField('标的名称','',`id="new-asset-name"`)}${inputField('证券代码','',`id="new-asset-code"`)}${inputField('币种','USD',`id="new-asset-currency"`)}${inputField('参考价','0',`id="new-asset-price"`,'number','any')}${inputField('x（%）','',`id="new-asset-x"`,'number','0.01')}</div><p class="input-help">识别到腾讯（0700.HK）默认4%、沪深300（510300）默认2%；其他标的留空，完成波动性评估后再填。</p><div class="actions"><button class="btn primary" data-action="add-asset">添加标的</button></div></article>${assets||'<div class="empty">还没有标的。</div>'}`;
+    }
+    function renderOrders(){
+      const sections=(data.assets||[]).map((a,ai)=>`<section class="panel asset-editor"><div class="edit-row"><strong>${esc(a.name)} · ${esc(a.code)} · ${esc(a.currency)} · x=${formatX(a.x)}</strong><span class="section-actions"><button class="mini-btn" data-action="add-order" data-ai="${ai}" data-side="buy">新增买单</button><button class="mini-btn" data-action="add-order" data-ai="${ai}" data-side="sell">新增卖单</button></span></div>${(a.orders||[]).length?(a.orders||[]).map((o,oi)=>renderOrder(a,o,ai,oi)).join(''):'<div class="empty">暂无挂单。用户目标是尽量保持一买一卖；可按需要手动补入。</div>'}</section>`).join('');
+      return `<div class="section-title"><h2>买卖挂单编辑</h2><span class="subtle">改价后即时复算；这里只记录计划，不会提交委托</span></div>${sections||'<div class="empty">还没有标的，请先到“持仓批次”添加。</div>'}`;
+    }
+    function transactionFollowup(tx,a){
+      if(!tx||!a)return {side:null,text:'成交对应的标的未找到，请先核对代码。'};
+      if(!['buy','sell'].includes(tx.side))return {side:null,text:'成交方向无效，请先核对买入或卖出记录。'};
+      const price=Number(tx.price),quantity=Number(tx.quantity),x=Number(a.x)||0;
+      if(!Number.isFinite(price)||price<=0||!Number.isFinite(quantity)||quantity<=0)return {side:null,text:'成交价或数量无效，暂不生成后续参考。'};
+      if(tx.side==='buy'&&tx.lane!=='波段仓')return {side:null,text:'战略仓买入不机械套用短期止盈价；后续按估值与21个交易日库存减持规则人工复核。'};
+      if(tx.afterSale==='清仓')return {side:null,text:'本次卖出后清仓：先重新评估估值；适中或偏低时，再按滚动7天最高价回撤2x制定建仓参考，不直接按本次卖价回补。'};
+      if(!Number.isFinite(x)||x<=0||x>=1)return {side:null,text:'该标的 x 未设置为有效正数比例，请先核对波动参考，再计算后续买卖价。'};
+      if(tx.side==='buy'&&tx.lane==='波段仓')return {side:'sell',price:price*(1+x),text:`波段买入后卖出参考：${money(price*(1+x),a.currency)}（成交价上涨 x=${(x*100).toFixed(2)}%）`};
+      return {side:'buy',price:price*(1-2*x),text:`卖出后回撤 2x 买回参考：${money(price*(1-2*x),a.currency)}（卖价回撤 ${(2*x*100).toFixed(2)}%）`};
+    }
+    function transactionSyncPlan(tx,a){
+      const fail=error=>({ok:false,error});
+      if(!tx||!a)return fail('成交对应的标的未找到，请先核对代码。');
+      if(tx.accountApplied)return fail('这笔成交已同步到账户，不能重复应用。');
+      const quantity=Number(tx.quantity),price=Number(tx.price),fees=Number(tx.fees||0),currency=a.currency;
+      if(!['buy','sell'].includes(tx.side)||!['战略仓','波段仓'].includes(tx.lane)||!Number.isFinite(quantity)||quantity<=0||!Number.isFinite(price)||price<=0||!Number.isFinite(fees)||fees<0)return fail('成交方向、仓位用途、数量、价格或费用无效。');
+      if(tx.side==='buy'&&tx.lane==='战略仓'&&!String(tx.purchaseRationale||'').trim())return fail('战略仓买入需要填写买入依据，才能同步到账户。');
+      const orders=a.orders||[],holdings=a.holdings||[];
+      let matchedOrder=null,matchedOrderIndex=null;
+      if(tx.matchedOrderIndex!==undefined&&tx.matchedOrderIndex!==null&&String(tx.matchedOrderIndex)!==''){
+        matchedOrderIndex=Number(tx.matchedOrderIndex);
+        if(!Number.isInteger(matchedOrderIndex)||matchedOrderIndex<0||matchedOrderIndex>=orders.length)return fail('匹配的本地挂单已不存在，请重新选择。');
+        matchedOrder=orders[matchedOrderIndex];
+        if(matchedOrder.side!==tx.side||!orderIsActive(matchedOrder))return fail('匹配挂单必须与成交方向一致且仍处于有效状态。');
+        if(quantity>Number(matchedOrder.quantity)+1e-9)return fail('本次成交数量超过所选挂单剩余数量。');
       }
-    </script>
-    <script type="module" src="./src/app.js"></script>
-  </body>
+      const gross=quantity*price,delta=tx.side==='buy'?-(gross+fees):(gross-fees);
+      if(tx.side==='sell'&&delta<0)return fail('卖出费用高于成交金额，无法记入现金。');
+      const cash=data.cash.find(c=>c.currency===currency),cashBefore=Number(cash?.balance)||0;
+      let cashAfter=cashBefore+delta,holdingBefore=holdings.reduce((s,h)=>s+(Number(h.quantity)||0),0),holdingAfter=holdingBefore+(tx.side==='buy'?quantity:-quantity),lot=null,lotIndex=null;
+      if(tx.side==='buy'){
+        if(!cash)return fail(`没有录入 ${currency} 现金，无法核对买入资金。`);
+        const reservedOther=data.assets.flatMap(asset=>(asset.currency===currency?(asset.orders||[]).map((o,i)=>({asset,o,i})):[])).filter(x=>x.o.side==='buy'&&orderIsActive(x.o)&&!(x.asset===a&&x.i===matchedOrderIndex)).reduce((s,x)=>s+(Number(x.o.quantity)||0)*(Number(x.o.limit_price)||0),0);
+        const matchedRemainingReserve=matchedOrder?Math.max(0,Number(matchedOrder.quantity)-quantity)*(Number(matchedOrder.limit_price)||0):0,reservedAfter=reservedOther+matchedRemainingReserve;
+        if(cashBefore-gross-fees+1e-9<reservedAfter)return fail(`成交后 ${currency} 现金不足以覆盖本次支出和剩余有效买单：现金余额 ${money(cashBefore,currency)}，成交及费用 ${money(gross+fees,currency)}，成交后买单仍需冻结 ${money(reservedAfter,currency)}。`);
+      }else{
+        lotIndex=Number(tx.sellLotIndex);
+        if(!Number.isInteger(lotIndex)||lotIndex<0||lotIndex>=holdings.length)return fail('请选择本次卖出的单个持仓批次；跨批次卖出请拆成多笔成交。');
+        lot=holdings[lotIndex];
+        if(lot.holding_type!==tx.lane)return fail('成交用途与所选持仓批次类别不一致，请核对。');
+        if(quantity>Number(lot.quantity)+1e-9)return fail('卖出数量超过所选持仓批次的剩余数量。');
+        const reservedOther=orders.filter((o,i)=>o.side==='sell'&&orderIsActive(o)&&i!==matchedOrderIndex).reduce((s,o)=>s+(Number(o.quantity)||0),0);
+        if(quantity>holdingBefore-reservedOther+1e-9)return fail('本次卖出会占用其他有效卖单预留的持仓，请先核对挂单或成交。');
+        const matchedRemainingShares=matchedOrder?Math.max(0,Number(matchedOrder.quantity)-quantity):0,reservedAfter=reservedOther+matchedRemainingShares;
+        if(holdingAfter+1e-9<reservedAfter)return fail(`卖出后剩余持仓 ${holdingAfter} 股/份，不足以覆盖仍有效的本地卖单 ${reservedAfter} 股/份。`);
+        if(tx.afterSale==='清仓'&&holdingAfter>1e-9)return fail(`本次记录标记为清仓，但该标的仍剩 ${holdingAfter} 股/份；请补录其他批次的卖出，或改为“仍有持仓”。`);
+        if(tx.afterSale==='仍有持仓'&&holdingAfter<=1e-9)return fail('本次记录标记为仍有持仓，但该标的卖出后已无持仓；请改为“清仓”。');
+      }
+      if(matchedOrder){
+        const remaining=Number(matchedOrder.quantity)-quantity;
+        if(remaining<=1e-9){matchedOrder={...matchedOrder,quantity:0,status:'已成交'};}
+        else matchedOrder={...matchedOrder,quantity:remaining};
+      }
+      return {ok:true,asset:a,cash,currency,quantity,price,fees,gross,delta,cashBefore,cashAfter,holdingBefore,holdingAfter,lot,lotIndex,matchedOrder,matchedOrderIndex};
+    }
+    function applyTransactionToLocalAccount(tx,plan){
+      if(tx.side==='buy'){
+        plan.asset.holdings.push({quantity:plan.quantity,purchase_date:tx.date,purchase_price:plan.price,holding_type:tx.lane,purchase_rationale_reference:tx.purchaseRationale||''});
+      }else{
+        plan.asset.holdings[plan.lotIndex].quantity=Number(plan.asset.holdings[plan.lotIndex].quantity)-plan.quantity;
+        if(plan.asset.holdings[plan.lotIndex].quantity<=1e-9)plan.asset.holdings.splice(plan.lotIndex,1);
+      }
+      let cash=data.cash.find(c=>c.currency===plan.currency);
+      if(!cash){cash={currency:plan.currency,balance:0,balanceReviewed:false,reserved_for_buy_orders:0,available_after_orders:0};data.cash.push(cash);}
+      cash.balance=plan.cashAfter;
+      if(plan.matchedOrderIndex!==null){
+        const order=plan.asset.orders[plan.matchedOrderIndex];
+        order.quantity=plan.matchedOrder.quantity;order.status=plan.matchedOrder.status||order.status;
+      }
+      tx.accountApplied=true;tx.accountAppliedAt=today();
+      tx.accountSyncSummary=`${tx.side==='buy'?'买入':'卖出'} ${plan.quantity}，现金 ${money(plan.cashBefore,plan.currency)} → ${money(plan.cashAfter,plan.currency)}，持仓 ${plan.holdingBefore} → ${plan.holdingAfter} 股/份`;
+      data.asOf=today();
+    }
+    function syncTransactionFormVisibility(){
+      const side=$('#transaction-side')?.value,lane=$('#transaction-lane')?.value;
+      const saleState=$('#transaction-after-sale-wrap'),rationale=$('#transaction-rationale-wrap');
+      if(saleState)saleState.hidden=side!=='sell';
+      if(rationale)rationale.hidden=!(side==='buy'&&lane==='战略仓');
+    }
+    function adjustDraftTransactionSelection(assetCode,field,removedIndex){
+      (data.transactions||[]).forEach(tx=>{
+        if(tx.accountApplied||canonicalAssetCode(tx.asset_code)!==canonicalAssetCode(assetCode)||tx[field]===undefined||tx[field]===null||String(tx[field])==='')return;
+        const selected=Number(tx[field]);
+        if(!Number.isInteger(selected))return;
+        if(selected===removedIndex)tx[field]='';
+        else if(selected>removedIndex)tx[field]=String(selected-1);
+      });
+    }
+    function renderTransactions(){
+      if(!(data.assets||[]).length)return `<div class="section-title"><h2>成交记录与后续挂单参考</h2></div><div class="empty">请先在“持仓批次”添加标的，再登记实际成交。</div>`;
+      const assetOptions=data.assets.map(a=>({value:a.code,label:`${a.name} · ${a.code}`}));
+      const rows=(data.transactions||[]).map((tx,ti)=>{
+        const a=data.assets.find(item=>canonicalAssetCode(item.code)===canonicalAssetCode(tx.asset_code));
+        const next=transactionFollowup(tx,a);
+        const action=next.side?`<button class="mini-btn" data-action="draft-followup" data-ti="${ti}">加入${next.side==='buy'?'买':'卖'}单计划</button>`:'';
+        const lots=(a?.holdings||[]).map((h,hi)=>({h,hi})).filter(x=>x.h.holding_type===tx.lane&&Number(x.h.quantity)>0).map(x=>({value:String(x.hi),label:`第${x.hi+1}批 ${x.h.holding_type} · ${Number(x.h.quantity)||0}股/份 · 买入${x.h.purchase_price||'未填'}`}));
+        const orders=(a?.orders||[]).map((o,oi)=>({o,oi})).filter(x=>x.o.side===tx.side&&orderIsActive(x.o)).map(x=>({value:String(x.oi),label:`第${x.oi+1}张有效${tx.side==='buy'?'买':'卖'}单 · 剩余${Number(x.o.quantity)||0}股/份 @ ${x.o.limit_price||0}`}));
+        const syncControls=tx.accountApplied?`<div class="inline-note good">已同步到本地账户 · ${esc(tx.accountSyncSummary||'')} · 券商委托仍由家人手动维护。</div>`:`${tx.side==='sell'?`<div class="edit-grid">${selectField('卖出持仓批次',tx.sellLotIndex??'',`data-model="transaction" data-ti="${ti}" data-field="sellLotIndex"`,[{value:'',label:lots.length?'请选择单个同类持仓批次':'没有匹配批次，请检查仓位类别'},...lots])}</div>${lots.length?'':'<div class="inline-note warning">找不到数量大于0且仓位类别相同的批次，先到持仓页核对后再同步。</div>'}`:''}<div class="edit-grid">${selectField('匹配本地有效挂单（可不选）',tx.matchedOrderIndex??'',`data-model="transaction" data-ti="${ti}" data-field="matchedOrderIndex"`,[{value:'',label:'不匹配挂单'},...orders])}</div><div class="actions"><button class="mini-btn primary" data-action="sync-transaction" data-ti="${ti}" ${tx.side==='sell'&&!lots.length?'disabled title="暂无同类可卖批次"':''}>预览并同步本地账户</button>${action}<button class="mini-btn danger-btn" data-action="remove-transaction" data-ti="${ti}">删除记录</button></div><p class="input-help">卖出按一个批次核对；如需跨批次，拆成多笔。只更新本页本地数据，不提交或修改券商委托。</p>`;
+        return `<article class="panel order-card"><div class="order-head"><div class="order-title">${esc(tx.date||'日期未填')} · ${esc(a?.name||tx.asset_code||'未知标的')} · ${tx.side==='buy'?'买入成交':'卖出成交'} · ${esc(tx.lane||'未分类')}</div>${tx.accountApplied?'<span class="badge neutral">已入账</span>':''}</div><div class="asset-meta">${Number(tx.quantity)||0} 股/份 × ${money(tx.price,a?.currency||tx.currency||'')} · 费用 ${money(tx.fees||0,a?.currency||tx.currency||'')} · ${esc(tx.asset_code||'')}</div><div class="inline-note ${next.side?'':'warning'}">${esc(next.text)}</div>${syncControls}</article>`;
+      }).join('');
+      return `<div class="section-title"><h2>登记实际成交</h2><span class="subtle">成交价和数量由家人核对后输入</span></div><article class="panel add-form"><h3>新增成交记录</h3><div class="edit-grid">${selectField('标的',assetOptions[0].value,'id="transaction-asset"',assetOptions)}${selectField('成交方向','buy','id="transaction-side"',[{value:'buy',label:'买入成交'},{value:'sell',label:'卖出成交'}])}${selectField('仓位用途','','id="transaction-lane"',[{value:'',label:'请选择仓位用途'},{value:'波段仓',label:'波段仓'},{value:'战略仓',label:'战略仓'}])}${inputField('成交日期',today(),`id="transaction-date"`,'date')}${inputField('成交数量','1',`id="transaction-quantity"`,'number','any')}${inputField('实际成交价','',`id="transaction-price"`,'number','any')}${inputField('费用（未知填0）','0',`id="transaction-fees"`,'number','any')}<div id="transaction-rationale-wrap">${inputField('战略买入依据（战略仓必填）','',`id="transaction-rationale"`)}</div><div id="transaction-after-sale-wrap">${selectField('卖出后状态（卖出时必选）','','id="transaction-after-sale"',[{value:'',label:'请选择卖出后状态'},{value:'仍有持仓',label:'卖出后仍有持仓'},{value:'清仓',label:'本次卖出后清仓'}])}</div></div><div class="actions"><button class="btn primary" data-action="add-transaction">登记成交</button></div><p class="input-help">先录实际成交。买入时按需填写战略依据；卖出时说明是否清仓。登记后可预览并确认同步本地持仓和现金，手续费按实际输入；取消不改数据。同步只改本地页，不操作券商委托。</p></article><div class="section-title"><h2>成交后的规则参考</h2><span class="subtle">按最近登记优先显示</span></div><div class="order-list">${rows||'<div class="empty">暂无成交记录。</div>'}</div>`;
+    }
+    function renderOrder(a,o,ai,oi){
+      const x=Number(a.x),validX=Number.isFinite(x)&&x>0&&x<1;
+      const calc=validX?expected(o,x):0,limit=Number(o.limit_price)||0,delta=limit-calc,close=validX&&Math.abs(delta)<0.000001;
+      const formula=validX?`按规则参考：${money(calc,a.currency)} · ${close?'当前限价与参考线一致':`与参考线差 ${delta>0?'+':''}${delta.toFixed(3)}`}`:'该标的 x 尚未评估，暂不生成公式参考价。';
+      return `<article class="panel order-card"><div class="order-head"><div class="order-title order-side"><span class="side-dot ${o.side==='sell'?'sell':''}"></span>${o.side==='buy'?'买入挂单':'卖出挂单'} · ${Number(o.quantity)||0} 股/份</div><button class="mini-btn danger-btn" data-action="remove-order" data-ai="${ai}" data-oi="${oi}">删除挂单</button></div><div class="edit-grid">${selectField('方向',o.side,`data-model="order" data-ai="${ai}" data-oi="${oi}" data-field="side"`,[{value:'buy',label:'买入'},{value:'sell',label:'卖出'}])}${inputField('数量',o.quantity,`data-model="order" data-ai="${ai}" data-oi="${oi}" data-field="quantity"`,'number','any')}${inputField(`当前限价（${a.currency}）`,o.limit_price,`data-model="order" data-ai="${ai}" data-oi="${oi}" data-field="limit_price"`,'number','any')}${inputField('规则参考价',o.reference_price,`data-model="order" data-ai="${ai}" data-oi="${oi}" data-field="reference_price"`,'number','any')}${inputField('参考来源',o.reference_type||'',`data-model="order" data-ai="${ai}" data-oi="${oi}" data-field="reference_type"`)}${inputField('仓位类别',o.strategy_lane||'',`data-model="order" data-ai="${ai}" data-oi="${oi}" data-field="strategy_lane"`)}${inputField('状态',o.status||'active',`data-model="order" data-ai="${ai}" data-oi="${oi}" data-field="status"`)}</div><div class="actions"><span class="formula ${close?'good':'bad'}">${formula}</span><button class="btn" data-action="use-formula" data-ai="${ai}" data-oi="${oi}" ${validX?'':'disabled'}>填入规则参考价</button></div></article>`;
+    }
+    function renderCash(){
+      const rows=(data.cash||[]).map((c,ci)=>{const required=requiredBuyCash(c.currency),balance=Number(c.balance)||0,free=balance-required,fits=free>=0;return `<article class="panel lot"><div class="edit-row"><strong>${esc(c.currency)} 现金 · ${c.balanceReviewed?'已确认对照账户':'待核对账户余额'}</strong><span class="section-actions"><button class="mini-btn" data-action="confirm-cash" data-ci="${ci}" ${c.balanceReviewed?'disabled':''}>${c.balanceReviewed?'已核对':'确认已对照券商账户'}</button><button class="mini-btn danger-btn" data-action="remove-cash" data-ci="${ci}">删除币种</button></span></div><div class="edit-grid three">${inputField('币种',c.currency,`data-model="cash" data-ci="${ci}" data-field="currency"`)}${inputField('账户余额',c.balance,`data-model="cash" data-ci="${ci}" data-field="balance"`,'number','any')}<div><div class="field-label">当前买单冻结</div><div class="mini-value">${money(required,c.currency)}</div></div><div><div class="field-label">按当前挂价可用</div><div class="mini-value ${fits?'':'bad'}">${money(free,c.currency)}</div></div></div><div class="inline-note ${fits?'':'warning'}">${fits?'余额覆盖当前买单金额。':'买单金额超过录入现金，请人工核对资金。'}冻结金额按本页买单数量 × 限价计算。</div></article>`}).join('');
+      return `${renderCheckPanel()}<div class="section-title"><h2>现金录入与挂单冻结核对</h2><span class="subtle">冻结款按当前买单自动重算</span></div><article class="panel add-form"><h3>新增现金币种</h3><div class="edit-grid two">${inputField('币种代码','CNY',`id="new-cash-currency"`)}${inputField('账户余额','0',`id="new-cash-balance"`,'number','any')}</div><div class="actions"><button class="btn primary" data-action="add-cash">添加现金</button></div></article>${rows||'<div class="empty">尚未录入现金。</div>'}<div class="inline-note">本页只核对余额与买单限价，不含费用、汇率、在途成交或券商规则；融资字段首版不启用。</div>`;
+    }
+    function portfolioChecks(){
+      const issues=[], finite=n=>Number.isFinite(Number(n));
+      if(!(data.assets||[]).length) issues.push({level:'warning',title:'还没有录入标的',detail:'添加资产、持仓与委托后，这里会检查关键字段和卖单库存覆盖。'});
+      (data.assets||[]).forEach(a=>{
+        const label=a.name||a.code||'未命名标的', holdings=a.holdings||[], active=(a.orders||[]).filter(orderIsActive);
+        const total=holdings.reduce((sum,h)=>sum+(Number(h.quantity)||0),0);
+        const sellTotal=active.filter(o=>o.side==='sell').reduce((sum,o)=>sum+(Number(o.quantity)||0),0);
+        const buys=active.filter(o=>o.side==='buy'), sells=active.filter(o=>o.side==='sell'), missing=[];
+        if(!String(a.name||'').trim()) missing.push('标的名称');
+        if(!String(a.code||'').trim()) missing.push('证券代码');
+        if(!String(a.currency||'').trim()) missing.push('计价币种');
+        if(!finite(a.reference_price)||Number(a.reference_price)<=0) missing.push('有效参考价');
+        if(!finite(a.x)||Number(a.x)<=0||Number(a.x)>=1) missing.push('有效 x');
+        if(missing.length) issues.push({level:'warning',title:`${label}：标的信息不完整`,detail:`还需补充：${missing.join('、')}。`});
+        holdings.forEach((h,i)=>{
+          const gaps=[];
+          if(!finite(h.quantity)||Number(h.quantity)<=0) gaps.push('正数持仓数量');
+          if(!h.purchase_date) gaps.push('买入日期');
+          if(!finite(h.purchase_price)||Number(h.purchase_price)<=0) gaps.push('有效买入价');
+          if(!['战略仓','波段仓'].includes(h.holding_type)) gaps.push('持仓类别');
+          if(h.holding_type==='战略仓'&&!String(h.purchase_rationale_reference||h.purchase_rationale||'').trim()) gaps.push('战略买入依据');
+          if(gaps.length) issues.push({level:'warning',title:`${label}：第${i+1}批持仓缺项`,detail:`还需补充：${gaps.join('、')}。`});
+        });
+        active.forEach((o,i)=>{
+          const gaps=[];
+          if(!['buy','sell'].includes(o.side)) gaps.push('买卖方向');
+          if(!finite(o.quantity)||Number(o.quantity)<=0) gaps.push('正数委托数量');
+          if(!finite(o.limit_price)||Number(o.limit_price)<=0) gaps.push('有效限价');
+          if(!finite(o.reference_price)||Number(o.reference_price)<=0) gaps.push('规则参考价');
+          if(!String(o.reference_type||'').trim()) gaps.push('参考来源');
+          if(gaps.length) issues.push({level:'warning',title:`${label}：第${i+1}张有效委托缺项`,detail:`还需补充：${gaps.join('、')}。`});
+        });
+        if(sellTotal>total+1e-9) issues.push({level:'danger',title:`${label}：卖单超过持仓`,detail:`有效卖单合计${sellTotal}，已录入持仓合计${total}；请核实重复委托或持仓数量。`});
+        if(!buys.length) issues.push({level:'warning',title:`${label}：当前没有有效买单`,detail:'按已有交易记录或估值建仓逻辑，人工判断是否补单。'});
+        if(!sells.length) issues.push({level:'warning',title:`${label}：当前没有有效卖单`,detail:'按当前库存和规则，人工判断是否补单。'});
+      });
+      return issues;
+    }
+    function renderCheckPanel(){
+      const issues=portfolioChecks();
+      return `<div class="section-title"><h2>数据完整性与库存覆盖</h2><span class="subtle">检查录入信息，不替你判断是否买卖</span></div><article class="panel lot">${issues.map(i=>`<div class="inline-note ${i.level==='danger'?'danger':i.level==='warning'?'warning':''}"><b>${esc(i.title)}</b><br>${esc(i.detail)}</div>`).join('')}<div class="subtle">卖单覆盖按标的总持仓合计检查，不替代逐批次归属核对。缺买单或卖单只作提醒，不自动补单。</div></article>`;
+    }
+    function bindEvents(){
+      document.querySelectorAll('[data-model]').forEach(input=>input.addEventListener('change',()=>{
+        const model=input.dataset.model, ai=Number(input.dataset.ai), field=input.dataset.field;
+        let value=input.value;
+        if(input.type==='number') value=Number(value);
+        if(model==='asset'){
+          const a=data.assets[ai]; if(field==='xPercent') a.x=(Number(value)||0)/100; else if(field==='currency') a[field]=String(value).trim().toUpperCase(); else a[field]=value;
+          if(field==='currency') ensureCash(value);
+        }
+        if(model==='holding') data.assets[ai].holdings[Number(input.dataset.hi)][field]=value;
+        if(model==='order') data.assets[ai].orders[Number(input.dataset.oi)][field]=value;
+        if(model==='transaction'){
+          const tx=data.transactions[Number(input.dataset.ti)];
+          if(tx&&!tx.accountApplied) tx[field]=value===''?'':String(value);
+        }
+        if(model==='cash'){
+          const c=data.cash[Number(input.dataset.ci)];
+          if(field==='currency'){
+            value=String(value).trim().toUpperCase();
+            if(data.cash.some((row,i)=>i!==Number(input.dataset.ci)&&row.currency===value)){alert('该币种现金已存在，请使用现有币种行。');render();return;}
+          }
+          c[field]=value;
+          if(field==='currency'||field==='balance')c.balanceReviewed=false;
+        }
+        data.asOf=today(); hasUnsavedChanges=true; render();
+      }));
+      document.querySelectorAll('[data-action]').forEach(button=>button.addEventListener('click',()=>handleAction(button)));
+      $('#transaction-side')?.addEventListener('change',syncTransactionFormVisibility);
+      $('#transaction-lane')?.addEventListener('change',syncTransactionFormVisibility);
+      syncTransactionFormVisibility();
+    }
+    function handleAction(button){
+      const action=button.dataset.action, ai=Number(button.dataset.ai);
+      if(action==='guide-tab'){activeTab=button.dataset.tab;render();if(activeTab==='holdings'&&!(data.assets||[]).length)$('#new-asset-name')?.focus?.();return;}
+      if(action==='export-current'){exportCurrentData();return;}
+      if(action==='confirm-cash'){
+        const cash=data.cash[Number(button.dataset.ci)];
+        if(!cash||!cashBalanceValid(cash.balance)){alert('请先填写有效的非负现金余额，再确认核对。');return;}
+        if(!confirm(`请确认已对照券商账户核对 ${cash.currency} 余额 ${money(cash.balance,cash.currency)}。只有确认后，设置清单才会将该币种标为已核对。`))return;
+        cash.balanceReviewed=true;
+      }
+      if(action==='add-asset'){
+        const name=$('#new-asset-name').value.trim(), code=$('#new-asset-code').value.trim().toUpperCase(), currency=$('#new-asset-currency').value.trim().toUpperCase()||'USD';
+        if(!name||!code){alert('请填写标的名称和证券代码。');return;}
+        if(data.assets.some(a=>a.code===code)){alert('证券代码已存在，请检查。');return;}
+        const enteredX=$('#new-asset-x').value.trim(),defaultX=data.strategyRules?.xByCanonicalTicker?.[canonicalAssetCode(code)];
+        const x=enteredX?(Number(enteredX)||0)/100:(Number.isFinite(Number(defaultX))?Number(defaultX):0);
+        data.assets.push({name,code,currency,reference_price:Number($('#new-asset-price').value)||0,x,holdings:[],orders:[],status:'未设监控状态',statusKind:'neutral',shortReason:'由家庭成员手动维护。'});ensureCash(currency);
+      }
+      if(action==='remove-asset'){
+        const asset=data.assets[ai];
+        if((data.transactions||[]).some(tx=>canonicalAssetCode(tx.asset_code)===canonicalAssetCode(asset?.code))){alert('该标的已有成交记录，不能直接删除；请先保留记录并核对账户。');return;}
+        data.assets.splice(ai,1);
+      }
+      if(action==='add-lot') data.assets[ai].holdings.push({quantity:0,purchase_date:today(),purchase_price:0,holding_type:'',purchase_rationale_reference:''});
+      if(action==='remove-lot'){
+        const hi=Number(button.dataset.hi),asset=data.assets[ai];adjustDraftTransactionSelection(asset.code,'sellLotIndex',hi);asset.holdings.splice(hi,1);
+      }
+      if(action==='add-order'){
+        const side=button.dataset.side, a=data.assets[ai];
+        a.orders.push({side,quantity:0,limit_price:0,reference_type:'',reference_price:0,strategy_lane:'波段',status:'active'});ensureCash(a.currency);
+      }
+      if(action==='remove-order'){
+        const oi=Number(button.dataset.oi),asset=data.assets[ai];adjustDraftTransactionSelection(asset.code,'matchedOrderIndex',oi);asset.orders.splice(oi,1);
+      }
+      if(action==='add-transaction'){
+        const code=$('#transaction-asset').value,side=$('#transaction-side').value,lane=$('#transaction-lane').value,date=$('#transaction-date').value,quantity=Number($('#transaction-quantity').value),price=Number($('#transaction-price').value),fees=Number($('#transaction-fees').value||0),purchaseRationale=$('#transaction-rationale').value.trim(),afterSale=$('#transaction-after-sale').value;
+        const a=data.assets.find(item=>canonicalAssetCode(item.code)===canonicalAssetCode(code));
+        if(!a||!['buy','sell'].includes(side)||!['波段仓','战略仓'].includes(lane)||(side==='sell'&&!['仍有持仓','清仓'].includes(afterSale))||!date||!Number.isFinite(quantity)||quantity<=0||!Number.isFinite(price)||price<=0||!Number.isFinite(fees)||fees<0||(side==='buy'&&lane==='战略仓'&&!purchaseRationale)){alert('请核对标的、方向、仓位用途、日期、正数成交数量和价格、非负费用；卖出需选卖出后状态，战略仓买入需填写依据。');return;}
+        data.transactions=data.transactions||[];
+        data.transactions.unshift({asset_code:a.code,side,lane,date,quantity,price,fees,purchaseRationale,afterSale:side==='sell'?afterSale:'',currency:a.currency});
+      }
+      if(action==='remove-transaction'){
+        const tx=data.transactions[Number(button.dataset.ti)];
+        if(tx?.accountApplied){alert('已同步到账户的成交记录不能直接删除；如需更正，请先核对账户后新增反向调整记录。');return;}
+        data.transactions.splice(Number(button.dataset.ti),1);
+      }
+      if(action==='sync-transaction'){
+        const ti=Number(button.dataset.ti),tx=data.transactions[ti],a=data.assets.find(item=>canonicalAssetCode(item.code)===canonicalAssetCode(tx?.asset_code)),plan=transactionSyncPlan(tx,a);
+        if(!plan.ok){alert(plan.error);return;}
+        const matched=plan.matchedOrder?`\n匹配挂单：${plan.matchedOrderIndex+1}号，剩余数量 ${plan.matchedOrder.quantity}，${plan.matchedOrder.status||'仍有效'}`:'\n不匹配既有挂单';
+        const batch=tx.side==='sell'?`\n卖出批次：第${plan.lotIndex+1}批 ${tx.lane}`:'';
+        const message=`请核对后同步到本地数据：\n${a.name}（${a.code}）${tx.side==='buy'?'买入':'卖出'} ${plan.quantity} 股/份 @ ${money(plan.price,plan.currency)}\n成交额：${money(plan.gross,plan.currency)}；费用：${money(plan.fees,plan.currency)}${batch}\n现金：${money(plan.cashBefore,plan.currency)} → ${money(plan.cashAfter,plan.currency)}\n持仓：${plan.holdingBefore} → ${plan.holdingAfter} 股/份${matched}\n\n此操作只改本地持仓、现金及可选匹配的本地挂单状态，不会向券商提交委托。确认继续？`;
+        if(!confirm(message))return;
+        applyTransactionToLocalAccount(tx,plan);
+      }
+      if(action==='draft-followup'){
+        const tx=data.transactions[Number(button.dataset.ti)],a=data.assets.find(item=>canonicalAssetCode(item.code)===canonicalAssetCode(tx?.asset_code)),next=transactionFollowup(tx,a);
+        if(!next.side){alert(next.text);return;}
+        if((a.orders||[]).some(o=>o.side===next.side&&orderIsActive(o))){alert(`该标的已有有效${next.side==='buy'?'买':'卖'}单计划，请先核对并编辑现有计划，避免重复挂单。`);return;}
+        a.orders.push({side:next.side,quantity:tx.quantity,limit_price:Number(next.price.toFixed(6)),reference_price:tx.price,reference_type:tx.side==='buy'?'实际买入成交价 + x':'实际卖出成交价 - 2x',strategy_lane:tx.lane,status:'active'});
+        activeTab='orders';
+      }
+      if(action==='add-cash'){
+        const currency=$('#new-cash-currency').value.trim().toUpperCase(), balance=Number($('#new-cash-balance').value);
+        if(!currency){alert('请填写币种代码。');return;}
+        if(data.cash.some(c=>c.currency===currency)){alert('该币种现金已存在，请直接编辑余额。');return;}
+        data.cash.push({currency,balance:Number.isFinite(balance)?balance:0,balanceReviewed:false,reserved_for_buy_orders:0,available_after_orders:0});
+      }
+      if(action==='remove-cash'){
+        const ci=Number(button.dataset.ci),cash=data.cash[ci];
+        if((data.assets||[]).some(a=>a.currency===cash?.currency)||(data.transactions||[]).some(tx=>tx.currency===cash?.currency)){alert('该币种已被标的或成交记录使用，不能删除现金行。');return;}
+        data.cash.splice(ci,1);
+      }
+      if(action==='use-formula'){
+        const a=data.assets[ai],o=a.orders[Number(button.dataset.oi)];o.limit_price=Number(expected(o,a.x).toFixed(6));
+      }
+      data.asOf=today();hasUnsavedChanges=true;render();
+    }
+    function blankData(){
+      return {asOf:today(),simulationOnly:false,foundationNote:'空白本地数据。战略风险经确认后，清仓该标的全部持仓；交易由家庭成员手动执行。',leverage_balance:0,cash:[],assets:[],alerts:[],transactions:[]};
+    }
+    function validateImportedData(value){
+      if(!value||typeof value!=='object') throw new Error('文件格式不符：JSON 顶层需要是数据对象。');
+      if(value&&value.backupFormat==='家庭投资数据备份'&&Number(value.backupVersion)!==1) throw new Error(`暂不支持备份格式版本：${value.backupVersion??'未知'}`);
+      const d=value.appData||value.data||value;
+      if(!d||!Array.isArray(d.assets)||!Array.isArray(d.cash)) throw new Error('文件格式不符：需要包含 assets 和 cash 数组的 JSON。');
+      const codes=new Set();
+      d.assets.forEach(a=>{if(!a||typeof a!=='object') throw new Error('标的数据格式不正确。');if(a.code&&codes.has(a.code)) throw new Error(`证券代码重复：${a.code}`);if(a.code) codes.add(a.code);a.holdings=Array.isArray(a.holdings)?a.holdings:[];a.orders=Array.isArray(a.orders)?a.orders:[];});
+      const currencies=new Set();
+      d.cash.forEach(c=>{if(!c||typeof c!=='object'||!c.currency) throw new Error('现金币种信息缺失。');if(currencies.has(c.currency)) throw new Error(`现金币种重复：${c.currency}`);currencies.add(c.currency);c.balanceReviewed=c.balanceReviewed===true;});
+      d.assets.forEach(a=>{if(a.currency&&!currencies.has(a.currency)){d.cash.push({currency:a.currency,balance:0,balanceReviewed:false,reserved_for_buy_orders:0,available_after_orders:0});currencies.add(a.currency);}});
+      d.alerts=Array.isArray(d.alerts)?d.alerts:[];d.transactions=Array.isArray(d.transactions)?d.transactions:[];
+      d.transactions.forEach(tx=>{
+        if(!tx||typeof tx!=='object'||!tx.asset_code||!['buy','sell'].includes(tx.side)||!['波段仓','战略仓'].includes(tx.lane)||!/^\d{4}-\d{2}-\d{2}$/.test(String(tx.date||''))||!Number.isFinite(Number(tx.quantity))||Number(tx.quantity)<=0||!Number.isFinite(Number(tx.price))||Number(tx.price)<=0||(tx.side==='sell'&&!['仍有持仓','清仓'].includes(tx.afterSale)))throw new Error('成交记录格式不正确：请检查标的、方向、用途、日期、正数数量和成交价；卖出记录还需说明是否清仓。');
+      });
+      d.asOf=d.asOf||today();d.simulationOnly=d.simulationOnly===true;
+      return JSON.parse(JSON.stringify(d));
+    }
+    function dataSummary(d){
+      const assets=d.assets||[], holdings=assets.reduce((n,a)=>n+(a.holdings||[]).length,0), quantities=assets.reduce((n,a)=>n+(a.holdings||[]).reduce((s,h)=>s+(Number(h.quantity)||0),0),0);
+      const orders=assets.flatMap(a=>a.orders||[]), buys=orders.filter(o=>o.side==='buy'&&orderIsActive(o)).length, sells=orders.filter(o=>o.side==='sell'&&orderIsActive(o)).length;
+      const cash=(d.cash||[]).map(c=>`${esc(c.currency)} ${esc(new Intl.NumberFormat('zh-CN',{maximumFractionDigits:2}).format(Number(c.balance)||0))}`).join('、')||'未录入';
+      const unreviewedCash=(d.cash||[]).filter(c=>c.balanceReviewed!==true).map(c=>c.currency).join('、');
+      const transactions=d.transactions||[],applied=transactions.filter(tx=>tx.accountApplied).length;
+      return [`标的：${assets.length}项`, `持仓批次：${holdings}批（${new Intl.NumberFormat('zh-CN',{maximumFractionDigits:4}).format(quantities)}股/份）`, `有效挂单：${buys}买 / ${sells}卖`, `成交记录：${transactions.length}笔（已入账 ${applied} 笔）`, `现金：${cash}${unreviewedCash?`（待核对：${esc(unreviewedCash)}）`:''}`, `数据时点：${esc(String(d.asOf||'未记录').slice(0,10))}`, `类型：${d.simulationOnly?'虚构演示数据':'本地手工数据'}`].map(x=>`<div>${x}</div>`).join('');
+    }
+    let pendingRestore=null;
+    function closeRestore(){pendingRestore=null;$('#restore-dialog').close();}
+    function previewRestore(file,parsed){
+      const incoming=validateImportedData(parsed),isEnvelope=parsed&&parsed.backupFormat==='家庭投资数据备份';
+      pendingRestore=incoming;
+      $('#restore-file-info').textContent=`文件：${file.name} · ${isEnvelope?`备份版本 v${parsed.backupVersion}，导出于 ${parsed.exportedAt||'未记录'}`:'旧版 JSON 导出文件'}`;
+      $('#current-summary').innerHTML=dataSummary(data);$('#incoming-summary').innerHTML=dataSummary(incoming);
+      $('#restore-dialog').showModal();
+    }
+    $('#new-blank').addEventListener('click',()=>{if(confirm('新建空白本地数据会替换当前页面内容。未导出的修改将丢失，是否继续？')){data=blankData();activeTab='holdings';hasUnsavedChanges=true;render();}});
+    $('#import-trigger').addEventListener('click',()=>$('#import-file').click());
+    $('#import-file').addEventListener('change',async event=>{
+      const file=event.target.files[0];if(!file)return;
+      try{previewRestore(file,JSON.parse(await file.text()));}
+      catch(error){alert(`无法导入：${error.message}`);}
+      event.target.value='';
+    });
+    function exportCurrentData(){
+      const exportedAt=new Date().toISOString(),backup={backupFormat:'家庭投资数据备份',backupVersion:1,exportedAt,data:JSON.parse(JSON.stringify(data))};
+      const stamp=exportedAt.replace(/[:.]/g,'-'),blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+      a.href=url;a.download=`家庭投资数据-${stamp}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+      hasUnsavedChanges=false;render();
+      $('#workspace-note').textContent='已导出带时间戳和格式版本的备份；之后修改仍需再次导出。';
+    }
+    $('#export-data').addEventListener('click',exportCurrentData);
+    $('#cancel-restore').addEventListener('click',closeRestore);
+    $('#restore-dialog').addEventListener('cancel',()=>{pendingRestore=null;});
+    $('#confirm-restore').addEventListener('click',()=>{if(!pendingRestore)return;data=pendingRestore;pendingRestore=null;hasUnsavedChanges=false;$('#restore-dialog').close();activeTab='overview';render();$('#workspace-note').textContent='备份已恢复到当前页面；后续修改请再次导出保存。';});
+    document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{activeTab=b.dataset.tab;render();}));
+    if(typeof window!=='undefined')window.addEventListener('beforeunload',event=>{if(hasUnsavedChanges){event.preventDefault();event.returnValue='';}});
+    render();
+  </script>
+</body>
 </html>
